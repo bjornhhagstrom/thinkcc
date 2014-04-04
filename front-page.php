@@ -66,18 +66,18 @@
 						<div class="main m-all d-all t-all cf" role="main">
 
 							<?php 
-							$design = new WP_Query( 'page_type=page&page_id=9' );
-							if ($design->have_posts()) : while ($design->have_posts()) : $design->the_post(); ?>
+							$inspire = new WP_Query( 'page_type=page&page_id=9' );
+							if ($inspire->have_posts()) : while ($inspire->have_posts()) : $inspire->the_post(); ?>
 
-							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+							<article id="post-<?php the_ID(); ?>" <?php post_class( 'm-all t-1of3 d-1of4 cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
 								<header class="article-header">
 
-									<h1 class="page-title center" itemprop="headline"><?php the_title(); ?></h1>
+									<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
 
 								</header> <?php // end article header ?>
 
-								<section class="entry-content center cf" itemprop="articleBody">
+								<section class="entry-content cf" itemprop="articleBody">
 									<?php the_content(); ?>
 								</section> <?php // end article section ?>
 
@@ -120,18 +120,16 @@
 						<div class="main m-all d-all t-all cf" role="main">
 
 							<?php 
-							$design = new WP_Query( 'page_type=page&page_id=11' );
-							if ($design->have_posts()) : while ($design->have_posts()) : $design->the_post(); ?>
+							$invoke = new WP_Query( 'page_type=page&page_id=11' );
+							if ($invoke->have_posts()) : while ($invoke->have_posts()) : $invoke->the_post(); ?>
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
 								<header class="article-header">
-
-									<h1 class="page-title center" itemprop="headline"><?php the_title(); ?></h1>
-
+									<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
 								</header> <?php // end article header ?>
 
-								<section class="entry-content center cf" itemprop="articleBody">
+								<section class="entry-content cf" itemprop="articleBody">
 									<?php the_content(); ?>
 								</section> <?php // end article section ?>
 
@@ -163,57 +161,59 @@
 
 			</div><!--  end invoke -->
 
-			<div id="inform" class="panel">
+			<div id="inform" class="panel archive">
 
 				<nav class="panel-nav">
 					<a class="bottom" href="#home"><span>Home</span></a>
 				</nav>
 				
-				<div class="inner-content wrap cf">
+				<!-- <div class="inner-content wrap cf"> -->
 
-						<div class="main m-all d-all t-all cf" role="main">
+					<?php get_sidebar(); ?>
 
-							<?php 
-							$design = new WP_Query( 'page_type=page&page_id=13' );
-							if ($design->have_posts()) : while ($design->have_posts()) : $design->the_post(); ?>
+					<div class="main m-all t-2of3 d-5of7 last-col cf" role="main">
 
-							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+						<?php 
+						$inform = new WP_Query( 'page_type=page&page_id=13' );
+						if ($inform->have_posts()) : while ($inform->have_posts()) : $inform->the_post(); ?>
 
-								<header class="article-header">
+						<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
-									<h1 class="page-title center" itemprop="headline"><?php the_title(); ?></h1>
+							<header class="article-header">
 
-								</header> <?php // end article header ?>
+								<h2 class="entry-title h3" itemprop="headline"><?php the_title(); ?></h2>
 
-								<section class="entry-content center cf" itemprop="articleBody">
-									<?php the_content(); ?>
-								</section> <?php // end article section ?>
+							</header> <?php // end article header ?>
 
-								<footer class="article-footer cf">
+							<section class="entry-content cf" itemprop="articleBody">
+								<?php the_excerpt(); ?>
+							</section> <?php // end article section ?>
 
-								</footer>
+							<footer class="article-footer cf">
+								<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">Read More</a>
+							</footer>
 
-							</article>
+						</article>
 
-							<?php endwhile; else : ?>
+						<?php endwhile; else : ?>
 
-									<article id="post-not-found" class="hentry cf">
-										<header class="article-header">
-											<h1><?php _e( 'Oops, Post Not Found!', 'bonestheme' ); ?></h1>
-										</header>
-										<section class="entry-content">
-											<p><?php _e( 'Uh Oh. Something is missing. Try double checking things.', 'bonestheme' ); ?></p>
-										</section>
-										<footer class="article-footer">
-												<p><?php _e( 'This is the error message in the page.php template.', 'bonestheme' ); ?></p>
-										</footer>
-									</article>
+								<article id="post-not-found" class="hentry cf">
+									<header class="article-header">
+										<h1><?php _e( 'Oops, Post Not Found!', 'bonestheme' ); ?></h1>
+									</header>
+									<section class="entry-content">
+										<p><?php _e( 'Uh Oh. Something is missing. Try double checking things.', 'bonestheme' ); ?></p>
+									</section>
+									<footer class="article-footer">
+											<p><?php _e( 'This is the error message in the page.php template.', 'bonestheme' ); ?></p>
+									</footer>
+								</article>
 
-							<?php endif; wp_reset_query(); ?>
+						<?php endif; wp_reset_query(); ?>
 
-						</div>
+					</div>
 
-				</div>
+				<!-- </div> -->
 
 			</div><!--  end inform -->
 
@@ -310,8 +310,7 @@
 					</nav>
 
 					<div class="inner-content wrap cf">
-						<div class="m-all d-all t-all cf">
-							
+						<div class="main m-all d-all t-all cf">
 							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 								<section class="entry-content cf" itemprop="articleBody">
 									<h1 class="project-title"><?php the_sub_field('project_title', 7); ?></h1>
@@ -327,6 +326,6 @@
 			    <!--  no projects -->
 			<?php endif; ?>
 
-			</section> <!--  end projects -->
+			<!--  end projects -->
 
 <?php get_footer(); ?>

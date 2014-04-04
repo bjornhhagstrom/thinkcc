@@ -1246,10 +1246,10 @@ GENERAL STYLES
 *********************/
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 100%;
+  font-size: 14px;
   line-height: 1.5;
   color: black;
-  background-color: #eaedf2;
+  background-color: white;
   -webkit-font-smoothing: antialiased; }
 
 /********************
@@ -1259,6 +1259,18 @@ style a page via class
 /* for sites that are read right to left (i.e. hebrew) */
 /* home page */
 /* blog template page */
+.archive {
+  background-color: #008bac; }
+  .archive .main {
+    color: black; }
+    .archive .main p {
+      margin: 0; }
+    .archive .main a, .archive .main a:visited {
+      color: black;
+      /* on hover */ }
+      .archive .main a:hover, .archive .main a:focus, .archive .main a:visited:hover, .archive .main a:visited:focus {
+        color: black; }
+
 /* archive page */
 /* date archive page */
 /* replace the number to the corresponding page number */
@@ -1318,10 +1330,42 @@ LAYOUT & GRID STYLES
   color: white; }
 
 #inspire {
-  left: 100%; }
+  left: 100%;
+  background-image: url(../images/inspire.jpg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover; }
+  #inspire article {
+    position: absolute;
+    top: 1em;
+    padding: 1em;
+    background-color: #ffd200; }
+    #inspire article.hentry header {
+      padding: 0; }
+    #inspire article .page-title {
+      color: white;
+      text-transform: uppercase; }
+    #inspire article .entry-content {
+      padding: 0; }
+      #inspire article .entry-content p {
+        margin: 0; }
 
 #invoke {
-  left: -100%; }
+  left: -100%;
+  background-image: url(../images/invoke.jpg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover; }
+  #invoke .page-title {
+    color: #e8004c;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.75); }
+  #invoke .entry-content {
+    padding: 1em;
+    background-color: white;
+    background-color: rgba(255, 255, 255, 0.75); }
+    #invoke .entry-content p {
+      margin: 0; }
 
 #design {
   top: 100%;
@@ -1339,22 +1383,29 @@ LAYOUT & GRID STYLES
     position: absolute;
     bottom: 1em;
     left: 1em; }
+  .project .inner-content {
+    height: 100%; }
+  .project .main {
+    height: 100%; }
 
 #inform {
   top: -100%;
-  background-color: #008bac;
-  color: white; }
+  background-color: #008bac; }
+  #inform .main a, #inform .main a:visited {
+    color: black; }
+    #inform .main a:hover, #inform .main a:focus, #inform .main a:visited:hover, #inform .main a:visited:focus {
+      color: black; }
 
 /*********************
 LINK STYLES
 *********************/
 a, a:visited {
-  color: #e8004c;
+  color: #bb3eff;
   /* on hover */
   /* on click */
   /* mobile tap color */ }
   a:hover, a:focus, a:visited:hover, a:visited:focus {
-    color: #ba003d; }
+    color: #ab10ff; }
   a:link, a:visited:link {
     /*
     this highlights links on iPhones/iPads.
@@ -1368,7 +1419,7 @@ H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
   text-rendering: optimizelegibility;
-  font-weight: 500;
+  font-weight: 400;
   /*
   if you're going to use webfonts, be sure to check your weights
   http://css-tricks.com/watch-your-font-weight/
@@ -1390,8 +1441,7 @@ h3, .h3 {
   font-size: 1.125em; }
 
 h4, .h4 {
-  font-size: 1.1em;
-  font-weight: 700; }
+  font-size: 1.1em; }
 
 h5, .h5 {
   font-size: 0.846em;
@@ -1512,12 +1562,19 @@ and more scalable.
 /*********************
 POSTS & CONTENT STYLES
 *********************/
+.inner-content {
+  position: relative; }
+
+.main {
+  position: relative; }
+
 .hentry {
-  margin-bottom: 1.5em; }
+  margin-bottom: 1em; }
   .hentry header {
-    padding: 1.5em; }
+    padding: 1em 1em 0; }
   .hentry footer {
-    padding: 1.5em; }
+    padding: 0 1.375em;
+    font-size: 0.75em; }
     .hentry footer p {
       margin: 0; }
 
@@ -1527,8 +1584,24 @@ POSTS & CONTENT STYLES
 .entry-title {
   margin: 0; }
 
+.entry-title {
+  color: white; }
+
+.single-title {
+  color: #008bac; }
+
+.archive-title {
+  padding: 0 0.9em; }
+
 /* want to style individual post classes? Booya! */
 /* post by id (i.e. post-3) */
+.post a {
+  color: #9fa6b4;
+  text-decoration: none; }
+  .post a:hover, .post a:hover, .post a:focus, .post a:visited:hover, .post a:visited:focus {
+    color: #9fa6b4;
+    text-decoration: underline; }
+
 /* general post style */
 /* general article on a page style */
 /* general style on an attatchment */
@@ -1544,7 +1617,7 @@ POSTS & CONTENT STYLES
 
 /* entry content */
 .entry-content {
-  padding: 1.5em 1.5em 0;
+  padding: 0 1em;
   /*
   image alignment on a screen this size may be
   a bit difficult. It's set to start aligning
@@ -1552,7 +1625,7 @@ POSTS & CONTENT STYLES
   but it's up to you. Feel free to change it up.
   */ }
   .entry-content p {
-    margin: 0 0 1.5em; }
+    margin: 0 0 2em; }
   .entry-content table {
     width: 100%;
     border: 1px solid #eaedf2;
@@ -1629,6 +1702,47 @@ POSTS & CONTENT STYLES
 /* gallery caption styles */
 .tags {
   margin: 0; }
+
+/*********************
+SIDEBARS & ASIDES
+*********************/
+.sidebar {
+  position: relative;
+  padding: 1em;
+  background-color: #008bac;
+  color: white; }
+  .sidebar .page-title {
+    line-height: 1em;
+    text-transform: uppercase; }
+
+.widgettitle {
+  margin: 0;
+  text-transform: uppercase; }
+
+.widget {
+  padding: 0;
+  margin: 2em 0; }
+  .widget ul {
+    margin: 0; }
+    .widget ul li {
+      /* deep nesting */ }
+      .widget ul li a {
+        color: black;
+        text-decoration: none; }
+        .widget ul li a:hover, .widget ul li a:focus, .widget ul li a:visited:hover, .widget ul li a:visited:focus {
+          color: black;
+          text-decoration: underline; }
+
+.no-widgets {
+  background-color: white;
+  padding: 1.5em;
+  text-align: center;
+  border: 1px solid #cccccc;
+  border-radius: 2px;
+  margin-bottom: 1.5em; }
+
+.current-cat {
+  font-weight: bold; }
 
 /*********************
 FOOTER STYLES
@@ -1830,20 +1944,6 @@ COMMENT FORM STYLES
   margin: 0 20px 1.1em; }
 
 /*********************
-SIDEBARS & ASIDES
-*********************/
-.widget ul li {
-  /* deep nesting */ }
-
-.no-widgets {
-  background-color: white;
-  padding: 1.5em;
-  text-align: center;
-  border: 1px solid #cccccc;
-  border-radius: 2px;
-  margin-bottom: 1.5em; }
-
-/*********************
 LARGER MOBILE DEVICES
 This is for devices like the Galaxy Note or something that's
 larger than an iPhone but smaller than a tablet. Let's call them
@@ -1949,11 +2049,43 @@ you can add resource intensive styles.
   LAYOUT & GRID STYLES
   *********************/
   .wrap {
-    width: 760px; }
+    width: 90%; }
 
   /*********************
   HEADER STYLES
   *********************/
+  /*********************
+  POSTS & CONTENT STYLES
+  *********************/
+  .inner-content {
+    height: 100%; }
+
+  .main {
+    height: 100%; }
+
+  #invoke article {
+    position: relative;
+    height: 100%; }
+  #invoke .page-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 4em; }
+  #invoke .entry-content {
+    position: absolute;
+    right: 0;
+    top: 48%;
+    width: 29%; }
+
+  #inspire article {
+    top: 25%;
+    left: 25%; }
+
+  .archive .main {
+    border-left: 1px solid black; }
+  .archive .sidebar {
+    background: url(../images/1px-solid-black.png) repeat-y 97.5% 0; }
+
   /*********************
   NAVIGATION STYLES
   *********************/
@@ -2017,21 +2149,13 @@ you can add resource intensive styles.
   SIDEBARS & ASIDES
   *********************/
   .sidebar {
-    margin-top: 2.2em; }
+    height: 100%; }
 
-  .widgettitle {
-    border-bottom: 2px solid #444;
-    margin-bottom: 0.75em; }
-
-  .widget {
-    padding: 0 10px;
-    margin: 2.2em 0; }
-    .widget ul li {
-      margin-bottom: 0.75em;
-      /* deep nesting */ }
-      .widget ul li ul {
-        margin-top: 0.75em;
-        padding-left: 1em; }
+  .widget ul li {
+    /* deep nesting */ }
+    .widget ul li ul {
+      margin-top: 0.75em;
+      padding-left: 1em; }
 
   /* links widget */
   /* meta widget */
@@ -2076,9 +2200,7 @@ you can add resource intensive styles.
   This is the desktop size. It's larger than an iPad so it will only
   be seen on the Desktop.
   
-  ******************************************************************/
-  .wrap {
-    width: 1040px; } }
+  ******************************************************************/ }
 /*********************
 LARGE VIEWING SIZE
 This is for the larger monitors and possibly full screen viewers.

@@ -187,11 +187,43 @@ GENERAL STYLES
 LAYOUT & GRID STYLES
 *********************/
 .wrap {
-  width: 760px; }
+  width: 90%; }
 
 /*********************
 HEADER STYLES
 *********************/
+/*********************
+POSTS & CONTENT STYLES
+*********************/
+.inner-content {
+  height: 100%; }
+
+.main {
+  height: 100%; }
+
+#invoke article {
+  position: relative;
+  height: 100%; }
+#invoke .page-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 4em; }
+#invoke .entry-content {
+  position: absolute;
+  right: 0;
+  top: 48%;
+  width: 29%; }
+
+#inspire article {
+  top: 25%;
+  left: 25%; }
+
+.archive .main {
+  border-left: 1px solid black; }
+.archive .sidebar {
+  background: url(../images/1px-solid-black.png) repeat-y 97.5% 0; }
+
 /*********************
 NAVIGATION STYLES
 *********************/
@@ -255,21 +287,13 @@ NAVIGATION STYLES
 SIDEBARS & ASIDES
 *********************/
 .sidebar {
-  margin-top: 2.2em; }
+  height: 100%; }
 
-.widgettitle {
-  border-bottom: 2px solid #444;
-  margin-bottom: 0.75em; }
-
-.widget {
-  padding: 0 10px;
-  margin: 2.2em 0; }
-  .widget ul li {
-    margin-bottom: 0.75em;
-    /* deep nesting */ }
-    .widget ul li ul {
-      margin-top: 0.75em;
-      padding-left: 1em; }
+.widget ul li {
+  /* deep nesting */ }
+  .widget ul li ul {
+    margin-top: 0.75em;
+    padding-left: 1em; }
 
 /* links widget */
 /* meta widget */
@@ -308,9 +332,6 @@ This is the desktop size. It's larger than an iPad so it will only
 be seen on the Desktop.
 
 ******************************************************************/
-.wrap {
-  width: 1040px; }
-
 /*
 you can call the larger styles if you want, but there's really no need
 */

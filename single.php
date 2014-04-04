@@ -1,29 +1,33 @@
 <?php get_header(); ?>
 
-			<div id="content">
+			<div id="content" class="panel">
 
-				<div id="inner-content" class="wrap cf">
+				<?php get_sidebar(); ?>
 
-					<div id="main" class="m-all t-2of3 d-5of7 cf" role="main">
+				<!-- <div id="inner-content" class="wrap cf"> -->
+
+					<div class="main m-all t-2of3 d-5of7 last-col cf" role="main">
 
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-							<?php
-								/*
-								 * Ah, post formats. Nature's greatest mystery (aside from the sloth).
-								 *
-								 * So this function will bting in the needed template file depending on what the post
-								 * format is. The different post formats are located in the post-formats folder.
-								 *
-								 *
-								 * REMEMBER TO ALWAYS HAVE A DEFAULT ONE NAMED "format.php" FOR POSTS THAT AREN'T
-								 * A SPECIFIC POST FORMAT.
-								 *
-								 * If you want to remove post formats, just delete the post-formats folder and
-								 * replace the function below with the contents of the "format.php" file.
-								*/
-								get_template_part( 'post-formats/format', get_post_format() );
-							?>
+						<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+
+							<header class="article-header">
+								<?php if(has_post_thumbnail()){ the_post_thumbnail(); } ?>
+								<h1 class="entry-title single-title h2" itemprop="headline"><?php the_title(); ?></h1>
+							</header> <?php // end article header ?>
+
+							<section class="entry-content cf" itemprop="articleBody">
+							  <?php the_content(); ?>
+							</section> <?php // end article section ?>
+
+							<footer class="article-footer">
+
+							  <?php printf( __( '%1$s', 'bonestheme' ), get_the_category_list(' | ') ); ?>
+
+							</footer> <?php // end article footer ?>
+
+						</article> <?php // end article ?>
 
 						<?php endwhile; ?>
 
@@ -45,9 +49,7 @@
 
 					</div>
 
-					<?php get_sidebar(); ?>
-
-				</div>
+				<!-- </div> -->
 
 			</div>
 

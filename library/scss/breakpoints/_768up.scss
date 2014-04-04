@@ -24,7 +24,7 @@ LAYOUT & GRID STYLES
 *********************/
 
 .wrap {
-	width: 760px;
+	width: 90%;
 }
 
 /*********************
@@ -34,6 +34,54 @@ HEADER STYLES
 .header {}
 
 	#logo {}
+
+/*********************
+POSTS & CONTENT STYLES
+*********************/
+
+#content {
+	
+}
+	.inner-content {
+		height: 100%;
+	}
+	.main {
+		height: 100%;	
+	}
+
+#invoke {
+	article {
+		position: relative;
+		height: 100%;
+	}
+	.page-title {
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-size: 4em;
+	}
+	.entry-content {
+		position: absolute;
+		right: 0;
+		top: 48%;
+		width: 29%;
+	}
+}
+#inspire {
+	article {
+		top: 25%;
+		left: 25%;
+	}
+}
+
+.archive {
+	.main {
+		border-left: 1px solid $black;
+	}
+	.sidebar {
+		background: url(../images/1px-solid-black.png) repeat-y 97.5% 0;
+	}
+}
 
 /*********************
 NAVIGATION STYLES
@@ -140,21 +188,15 @@ SIDEBARS & ASIDES
 *********************/
 
 .sidebar {
-	margin-top: 2.2em;
+	height: 100%;
 }
 
-	.widgettitle {
-		border-bottom: 2px solid #444;
-		margin-bottom: 0.75em;
-	}
+	.widgettitle {}
 
 	.widget {
-		padding: 0 10px;
-		margin: 2.2em 0;
 
 		ul {
 			li {
-				margin-bottom: 0.75em;
 
 				&:first-child {}
 				&:last-child {}

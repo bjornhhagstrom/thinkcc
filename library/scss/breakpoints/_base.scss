@@ -17,7 +17,7 @@ GENERAL STYLES
 
 body {
 	font-family: $sans-serif;
-	font-size: 100%;
+	font-size: 14px;
 	line-height: 1.5;
 	color: $text-color;
 	background-color: $bg-color;
@@ -32,7 +32,23 @@ style a page via class
 .rtl {}                           /* for sites that are read right to left (i.e. hebrew) */
 .home {}                          /* home page */
 .blog {}                          /* blog template page */
-.archive {}                       /* archive page */
+.archive {
+	background-color: $blue;
+	.main {
+		color: $black;
+		p {
+			margin: 0;
+		}
+		a, a:visited {
+			color: $black;
+
+			/* on hover */
+			&:hover, &:focus {
+				color: $black;
+			}
+		}
+	}
+}                       /* archive page */
 .date {}                          /* date archive page */
 	.date-paged-1 {}                /* replace the number to the corresponding page number */
 .search {}                        /* search page */
@@ -99,10 +115,51 @@ LAYOUT & GRID STYLES
 
 #inspire {
 	left: 100%;
+	background-image: url(../images/inspire.jpg);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+	article {
+		&.hentry header {
+			padding: 0;
+		}
+		position: absolute;
+		top: 1em;
+		padding: 1em;
+		background-color: $yellow;
+		.page-title {
+			color: $white;
+			text-transform: uppercase;
+		}
+		.entry-content {
+			padding: 0;
+			p {
+				margin: 0;
+			}
+		}
+	}
+	
 }
 
 #invoke {
 	left: -100%;
+	background-image: url(../images/invoke.jpg);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+	.page-title {
+		color: $pink;
+		text-transform: uppercase;
+		text-shadow: 1px 1px 0px white(0.75);
+	}
+	.entry-content {
+		padding: 1em;
+		background-color: $white;
+		background-color: white(0.75);
+		p {
+			margin: 0;
+		}
+	}
 }
 
 #design {
@@ -123,12 +180,25 @@ LAYOUT & GRID STYLES
 		bottom: 1em;
 		left: 1em;
 	}
+	.inner-content {
+		height: 100%;
+	}
+	.main {
+		height: 100%;
+	}
 }
 
 #inform {
 	top: -100%;
 	background-color: $blue;
-	color: white;
+	.main {
+		a, a:visited {
+			color: $black;
+			&:hover, &:focus {
+				color: $black;
+			}
+		}
+	}
 }
 
 /*********************
@@ -165,7 +235,7 @@ H1, H2, H3, H4, H5 STYLES
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 	text-rendering: optimizelegibility;
-	font-weight: 500;
+	font-weight: 400;
 	/*
 	if you're going to use webfonts, be sure to check your weights
 	http://css-tricks.com/watch-your-font-weight/
@@ -194,7 +264,6 @@ h3, .h3 {
 
 h4, .h4 {
 	font-size: 1.1em;
-	font-weight: 700;
 }
 
 h5, .h5 {
@@ -384,17 +453,23 @@ POSTS & CONTENT STYLES
 #content {
 	
 }
+	.inner-content {
+		position: relative;
+	}
+	.main {
+		position: relative;	
+	}
 
 		.hentry {
-			margin-bottom: 1.5em;
+			margin-bottom: 1em;
 
 			header {
-				padding: 1.5em;
+				padding: 1em 1em 0;
 			}
 
 			footer {
-				padding: 1.5em;
-
+				padding: 0 1.375em;
+				font-size: 0.75em;
 				p {
 					margin: 0;
 				}
@@ -408,17 +483,32 @@ POSTS & CONTENT STYLES
 			margin: 0;
 		}
 
-		.single-title {}
-
 		.page-title {}
 
-		.entry-title {}
+		.entry-title {
+			color: $white;
+		}
 
-		.archive-title {}
+		.single-title {
+			color: $blue;
+		}
+
+		.archive-title {
+			padding: 0 0.9em;
+		}
 
 		/* want to style individual post classes? Booya! */
 		.post-id {}         /* post by id (i.e. post-3) */
-		.post {}            /* general post style */
+		.post {
+			a {
+				color: $meta-gray;
+				text-decoration: none;
+				&:hover, &:hover, &:focus, &:visited:hover, &:visited:focus {
+					color: $meta-gray;
+					text-decoration: underline;
+				}
+			}
+		}            /* general post style */
 		.page {}            /* general article on a page style */
 		.attachment {}      /* general style on an attatchment */
 		.sticky {}          /* sticky post style */
@@ -437,10 +527,10 @@ POSTS & CONTENT STYLES
 
 		/* entry content */
 		.entry-content {
-			padding: 1.5em 1.5em 0;
+			padding: 0 1em;
 
 			p {
-				margin: 0 0 1.5em;
+				margin: 0 0 2em;
 			}
 
 
@@ -611,6 +701,68 @@ POSTS & CONTENT STYLES
 	// the tag output
 	.tags {
 		margin: 0;
+	}
+
+/*********************
+SIDEBARS & ASIDES
+*********************/
+
+.sidebar {
+	position: relative;
+	padding: 1em;
+	background-color: $blue;
+	color: white;
+	.page-title {
+		line-height: 1em;
+		text-transform: uppercase;
+	}
+}
+
+	.widgettitle {
+		margin: 0;
+		text-transform: uppercase;
+	}
+
+	.widget {
+		padding: 0;
+		margin: 2em 0;
+		ul {
+			margin: 0;
+			li {
+
+				&:first-child {}
+
+				&:last-child {}
+
+				a {
+					color: $black;
+					text-decoration: none;
+					&:hover, &:focus, &:visited:hover, &:visited:focus {
+						color: $black;
+						text-decoration: underline;
+					}
+				}
+
+				/* deep nesting */
+				ul {}
+
+			}
+
+		}
+
+	}
+
+	.no-widgets {
+		background-color: $white;
+		padding: 1.5em;
+		text-align: center;
+		border: 1px solid $border-color;
+		border-radius: 2px;
+		margin-bottom: 1.5em;
+	}
+
+	.current-cat {
+		font-weight: bold;
 	}
 
 /*********************
@@ -972,42 +1124,4 @@ COMMENT FORM STYLES
 	/* no comments */
 	.nocomments {
 		margin: 0 20px 1.1em;
-	}
-
-/*********************
-SIDEBARS & ASIDES
-*********************/
-
-.sidebar {}
-
-	.widgettitle {}
-
-	.widget {
-
-		ul {
-
-			li {
-
-				&:first-child {}
-
-				&:last-child {}
-
-				a {}
-
-				/* deep nesting */
-				ul {}
-
-			}
-
-		}
-
-	}
-
-	.no-widgets {
-		background-color: $white;
-		padding: 1.5em;
-		text-align: center;
-		border: 1px solid $border-color;
-		border-radius: 2px;
-		margin-bottom: 1.5em;
 	}
