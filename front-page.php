@@ -17,9 +17,11 @@
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
-								<header class="article-header">
+								<header class="article-header center">
 
-									<h1 class="page-title center" itemprop="headline"><?php the_title(); ?></h1>
+									<img class="cc-icon" src="<?php bloginfo('template_url'); ?>/library/images/cc-home.svg" alt="<?php the_title(); ?>" />
+
+									<h1 class="page-title swiss-thin" itemprop="headline"><?php the_title(); ?></h1>
 
 								</header> <?php // end article header ?>
 
@@ -73,7 +75,7 @@
 
 								<header class="article-header">
 
-									<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
+									<h1 class="page-title swiss-thin" itemprop="headline"><?php the_title(); ?></h1>
 
 								</header> <?php // end article header ?>
 
@@ -126,7 +128,7 @@
 							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
 								<header class="article-header">
-									<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
+									<h1 class="page-title swiss-thin" itemprop="headline"><?php the_title(); ?></h1>
 								</header> <?php // end article header ?>
 
 								<section class="entry-content cf" itemprop="articleBody">
@@ -167,11 +169,11 @@
 					<a class="bottom" href="#home"><span>Home</span></a>
 				</nav>
 				
-				<!-- <div class="inner-content wrap cf"> -->
+				<div class="inner-content wrap cf">
 
 					<?php get_sidebar(); ?>
 
-					<div class="main m-all t-2of3 d-5of7 last-col cf" role="main">
+					<div class="main m-all t-2of3 d-1of2 last-col cf" role="main">
 
 						<?php 
 						$inform = new WP_Query( 'page_type=page&page_id=13' );
@@ -213,7 +215,7 @@
 
 					</div>
 
-				<!-- </div> -->
+				</div>
 
 			</div><!--  end inform -->
 
@@ -242,11 +244,13 @@
 
 								<header class="article-header">
 
-									<h1 class="page-title center" itemprop="headline"><?php the_title(); ?></h1>
+									<img class="cc-icon" src="<?php bloginfo('template_url'); ?>/library/images/cc-design.svg" alt="<?php the_title(); ?>" />
+
+									<h1 class="page-title swiss-black" itemprop="headline"><?php the_title(); ?></h1>
 
 								</header> <?php // end article header ?>
 
-								<section class="entry-content center cf" itemprop="articleBody">
+								<section class="entry-content swiss-thin h1 cf" itemprop="articleBody">
 									<?php the_content(); ?>
 								</section> <?php // end article section ?>
 

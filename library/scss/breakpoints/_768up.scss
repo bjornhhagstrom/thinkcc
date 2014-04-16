@@ -23,9 +23,7 @@ body {}
 LAYOUT & GRID STYLES
 *********************/
 
-.wrap {
-	width: 90%;
-}
+
 
 /*********************
 HEADER STYLES
@@ -49,6 +47,12 @@ POSTS & CONTENT STYLES
 		height: 100%;	
 	}
 
+#home {
+	.page-title {
+		font-size: 2.5em;
+	}
+}
+
 #invoke {
 	article {
 		position: relative;
@@ -58,7 +62,7 @@ POSTS & CONTENT STYLES
 		position: absolute;
 		top: 0;
 		left: 0;
-		font-size: 4em;
+		font-size: 7.5em;
 	}
 	.entry-content {
 		position: absolute;
@@ -67,10 +71,31 @@ POSTS & CONTENT STYLES
 		width: 29%;
 	}
 }
+
 #inspire {
 	article {
 		top: 25%;
 		left: 25%;
+	}
+}
+
+#design {
+	header {
+		.cc-icon {
+			max-width: 225px;
+		}
+		.page-title {
+			font-size: 4em;
+		}
+	}
+	.entry-content {
+		font-size: 4em;
+	}
+}
+
+#inform {
+	.wrap {
+		max-width: 1280px;
 	}
 }
 

@@ -9,3 +9,48 @@ on larger screens.
 
 ******************************************************************/
 
+#inspire {
+	article {
+		&.hentry header {
+		}
+		
+		.page-title {
+			font-size: 5em;
+		}
+		.entry-content {
+			p {
+			}
+			img.cc-icon {
+			}
+		}
+	}
+	
+}
+#inform {
+	.sidebar {
+		padding: 1em 0;
+		.page-title {
+			font-size: 7em;
+		}
+	}
+	.main {
+		a, a:visited {
+			&:hover, &:focus {
+			}
+		}
+	}
+}
+.single {
+	.sidebar {
+		padding: 1em 0;
+		.page-title {
+			font-size: 7em;
+		}
+	}
+	.main {
+		a, a:visited {
+			&:hover, &:focus {
+			}
+		}
+	}
+}

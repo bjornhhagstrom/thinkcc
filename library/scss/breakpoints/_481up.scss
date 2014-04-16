@@ -22,6 +22,19 @@ anymore, so just be aware that if you drop
 them in here, they won't work.
 */
 
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+
+.wrap {
+	width: 90%;
+}
+#home, #design {
+	.wrap {
+		width: 75%;
+		max-width: 960px;
+	}
+}
 
 /*********************
 NAVIGATION STYLES
@@ -73,6 +86,47 @@ NAVIGATION STYLES
 		} /* end .menu ul */
 	} /* end .menu */
 
+// page nav menu
+.panel-nav {
+	a {
+		&:hover, &:focus {
+		}
+		span {
+			transition: all 0.25s ease;
+		}
+		&.bottom {
+			span {
+				&:hover, &:focus {
+					background-position: 50% 75%;
+				}
+			}
+		}
+		&.right {
+			span {
+				background-position: 50% 50%;
+				&:hover, &:focus {
+					background-position: 75% 50%;
+				}
+			}
+		}
+		&.left {
+			span {
+				background-position: 50% 50%;
+				&:hover, &:focus {
+					background-position: 25% 50%;
+				}
+			}
+		}
+		&.top {
+			span {
+				&:hover, &:focus {
+					background-position: 50% 25%;
+				}
+			}
+		}
+	}
+}
+
 /*********************
 POSTS & CONTENT STYLES
 *********************/
@@ -100,6 +154,16 @@ POSTS & CONTENT STYLES
 	}
 
 } /* end .entry-content */
+
+// pages
+#home {
+	article {
+		.cc-icon {
+			max-width: 360px;
+		}
+	}
+	
+}
 
 /*********************
 FOOTER STYLES

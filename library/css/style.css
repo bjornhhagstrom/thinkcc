@@ -501,10 +501,25 @@ The following is based of Typebase:
 https://github.com/devinhunt/typebase.css
 I've edited it a bit, but it's a nice starting point.
 */
-/*
- i imported this one in the functions file so bones would look sweet.
- don't forget to remove it for your site.
-*/
+.swiss-thin {
+  font-family: "Swiss 721 W03 Thn";
+  font-weight: normal; }
+
+.swiss-medium {
+  font-family: "Swiss 721 W03 Md"; }
+
+.swiss-medium-italic {
+  font-family: "Swiss 721 W03 Md It"; }
+
+.swiss-black {
+  font-family: "Swiss 721 W03 Blk"; }
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  font-weight: normal; }
+
+em, i, .em {
+  font-family: "Swiss 721 W03 Md It"; }
+
 /*
 some nice typographical defaults
 more here: http://www.newnet-soft.com/blog/csstypography
@@ -909,7 +924,7 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
 .blue-btn, .comment-reply-link, #submit {
   display: inline-block;
   position: relative;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Swiss 721 W03 Md", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-decoration: none;
   color: white;
   font-size: 0.9em;
@@ -990,7 +1005,6 @@ textarea,
   border: 0;
   width: 100%;
   max-width: 400px;
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #eaedf2;
   -webkit-transition: background-color 0.24s ease-in-out;
   transition: background-color 0.24s ease-in-out; }
@@ -1245,7 +1259,7 @@ and will be used across all viewports.
 GENERAL STYLES
 *********************/
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Swiss 721 W03 Md", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5;
   color: black;
@@ -1322,12 +1336,17 @@ LAYOUT & GRID STYLES
   overflow: hidden; }
 
 .wrap {
-  width: 96%;
+  width: 90%;
   margin: 0 auto; }
 
 #home {
   background-color: #e8004c;
   color: white; }
+  #home article {
+    padding-top: 4em;
+    font-size: 1.125em; }
+    #home article .cc-icon {
+      max-width: 90%; }
 
 #inspire {
   left: 100%;
@@ -1339,16 +1358,21 @@ LAYOUT & GRID STYLES
     position: absolute;
     top: 1em;
     padding: 1em;
-    background-color: #ffd200; }
+    background-color: white;
+    background-color: rgba(255, 255, 255, 0.75); }
     #inspire article.hentry header {
       padding: 0; }
     #inspire article .page-title {
-      color: white;
+      font-size: 4.5em;
+      color: #bb3eff;
       text-transform: uppercase; }
     #inspire article .entry-content {
       padding: 0; }
       #inspire article .entry-content p {
         margin: 0; }
+      #inspire article .entry-content img.cc-icon {
+        float: right;
+        margin: 3em 0 0 1.5em; }
 
 #invoke {
   left: -100%;
@@ -1357,20 +1381,38 @@ LAYOUT & GRID STYLES
   background-position: 50% 50%;
   background-size: cover; }
   #invoke .page-title {
+    font-size: 4em;
     color: #e8004c;
     text-transform: uppercase;
-    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.75); }
+    text-shadow: 1px 1px 3px white; }
   #invoke .entry-content {
     padding: 1em;
     background-color: white;
     background-color: rgba(255, 255, 255, 0.75); }
     #invoke .entry-content p {
       margin: 0; }
+    #invoke .entry-content img.cc-icon {
+      float: right;
+      margin: 3em 0 0 1.5em; }
 
 #design {
   top: 100%;
   background-color: #ff681d;
   color: white; }
+  #design header {
+    padding: 4em 0 0; }
+    #design header .cc-icon {
+      margin-bottom: 1em;
+      max-width: 38%; }
+    #design header .page-title {
+      margin-left: 14%;
+      line-height: 1.2em;
+      text-transform: uppercase; }
+  #design .entry-content {
+    margin-left: 14%;
+    padding: 0;
+    font-size: 2em;
+    line-height: 1.2em; }
 
 .project {
   left: 100%;
@@ -1391,63 +1433,14 @@ LAYOUT & GRID STYLES
 #inform {
   top: -100%;
   background-color: #008bac; }
+  #inform .wrap {
+    width: 100%; }
+  #inform .sidebar .page-title {
+    font-size: 4em; }
   #inform .main a, #inform .main a:visited {
     color: black; }
     #inform .main a:hover, #inform .main a:focus, #inform .main a:visited:hover, #inform .main a:visited:focus {
       color: black; }
-
-/*********************
-LINK STYLES
-*********************/
-a, a:visited {
-  color: #bb3eff;
-  /* on hover */
-  /* on click */
-  /* mobile tap color */ }
-  a:hover, a:focus, a:visited:hover, a:visited:focus {
-    color: #ab10ff; }
-  a:link, a:visited:link {
-    /*
-    this highlights links on iPhones/iPads.
-    so it basically works like the :hover selector
-    for mobile devices.
-    */
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3); }
-
-/******************************************************************
-H1, H2, H3, H4, H5 STYLES
-******************************************************************/
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
-  text-rendering: optimizelegibility;
-  font-weight: 400;
-  /*
-  if you're going to use webfonts, be sure to check your weights
-  http://css-tricks.com/watch-your-font-weight/
-  */
-  /* removing text decoration from all headline links */ }
-  h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a {
-    text-decoration: none; }
-
-h1, .h1 {
-  font-size: 2.5em;
-  line-height: 1.333em; }
-
-h2, .h2 {
-  font-size: 1.75em;
-  line-height: 1.4em;
-  margin-bottom: 0.375em; }
-
-h3, .h3 {
-  font-size: 1.125em; }
-
-h4, .h4 {
-  font-size: 1.1em; }
-
-h5, .h5 {
-  font-size: 0.846em;
-  line-height: 2.09em;
-  text-transform: uppercase;
-  letter-spacing: 2px; }
 
 /*********************
 HEADER STYLES
@@ -1507,9 +1500,14 @@ and more scalable.
     position: absolute;
     color: white;
     text-align: center;
-    z-index: 99; }
-    .panel-nav a:hover {
-      background-color: rgba(0, 0, 0, 0.25); }
+    text-indent: -9999px;
+    z-index: 99;
+    opacity: 0.25; }
+    .panel-nav a:hover, .panel-nav a:focus {
+      opacity: 1; }
+    .panel-nav a span {
+      background-repeat: no-repeat;
+      background-position: 50% 50%; }
     .panel-nav a.bottom {
       left: 0;
       bottom: 0;
@@ -1518,9 +1516,10 @@ and more scalable.
       .panel-nav a.bottom span {
         display: block;
         margin: 0 auto;
-        width: 100%;
+        width: 75px;
         height: 4em;
-        line-height: 4em; }
+        line-height: 4em;
+        background-image: url(../images/arrow-down.png); }
     .panel-nav a.right {
       top: 0;
       right: 0;
@@ -1530,10 +1529,12 @@ and more scalable.
         display: block;
         position: relative;
         top: 50%;
-        margin-top: -1em;
+        margin-top: -75px;
         width: 100%;
-        height: 1em;
-        line-height: 1em; }
+        height: 75px;
+        line-height: 75px;
+        background-image: url(../images/arrow-right.png);
+        background-position: 90% 50%; }
     .panel-nav a.left {
       top: 0;
       left: 0;
@@ -1543,10 +1544,12 @@ and more scalable.
         display: block;
         position: relative;
         top: 50%;
-        margin-top: -1em;
+        margin-top: -75px;
         width: 100%;
-        height: 1em;
-        line-height: 1em; }
+        height: 75px;
+        line-height: 75px;
+        background-image: url(../images/arrow-left.png);
+        background-position: 10% 50%; }
     .panel-nav a.top {
       top: 0;
       left: 0;
@@ -1555,9 +1558,10 @@ and more scalable.
       .panel-nav a.top span {
         display: block;
         margin: 0 auto;
-        width: 100%;
+        width: 75px;
         height: 4em;
-        line-height: 4em; }
+        line-height: 4em;
+        background-image: url(../images/arrow-up.png); }
 
 /*********************
 POSTS & CONTENT STYLES
@@ -1973,6 +1977,16 @@ tweeners.
   them in here, they won't work.
   */
   /*********************
+  LAYOUT & GRID STYLES
+  *********************/
+  .wrap {
+    width: 90%; }
+
+  #home .wrap, #design .wrap {
+    width: 75%;
+    max-width: 960px; }
+
+  /*********************
   NAVIGATION STYLES
   *********************/
   /* .menu is clearfixed inside mixins.scss */
@@ -1993,6 +2007,21 @@ tweeners.
           */ }
 
   /* end .menu */
+  .panel-nav a span {
+    transition: all 0.25s ease; }
+  .panel-nav a.bottom span:hover, .panel-nav a.bottom span:focus {
+    background-position: 50% 75%; }
+  .panel-nav a.right span {
+    background-position: 50% 50%; }
+    .panel-nav a.right span:hover, .panel-nav a.right span:focus {
+      background-position: 75% 50%; }
+  .panel-nav a.left span {
+    background-position: 50% 50%; }
+    .panel-nav a.left span:hover, .panel-nav a.left span:focus {
+      background-position: 25% 50%; }
+  .panel-nav a.top span:hover, .panel-nav a.top span:focus {
+    background-position: 50% 25%; }
+
   /*********************
   POSTS & CONTENT STYLES
   *********************/
@@ -2014,6 +2043,9 @@ tweeners.
       clear: both; }
 
   /* end .entry-content */
+  #home article .cc-icon {
+    max-width: 360px; }
+
   /*********************
   FOOTER STYLES
   *********************/
@@ -2048,9 +2080,6 @@ you can add resource intensive styles.
   /*********************
   LAYOUT & GRID STYLES
   *********************/
-  .wrap {
-    width: 90%; }
-
   /*********************
   HEADER STYLES
   *********************/
@@ -2063,6 +2092,9 @@ you can add resource intensive styles.
   .main {
     height: 100%; }
 
+  #home .page-title {
+    font-size: 2.5em; }
+
   #invoke article {
     position: relative;
     height: 100%; }
@@ -2070,7 +2102,7 @@ you can add resource intensive styles.
     position: absolute;
     top: 0;
     left: 0;
-    font-size: 4em; }
+    font-size: 7.5em; }
   #invoke .entry-content {
     position: absolute;
     right: 0;
@@ -2080,6 +2112,16 @@ you can add resource intensive styles.
   #inspire article {
     top: 25%;
     left: 25%; }
+
+  #design header .cc-icon {
+    max-width: 225px; }
+  #design header .page-title {
+    font-size: 4em; }
+  #design .entry-content {
+    font-size: 4em; }
+
+  #inform .wrap {
+    max-width: 1280px; }
 
   .archive .main {
     border-left: 1px solid black; }
@@ -2215,7 +2257,19 @@ This is for the larger monitors and possibly full screen viewers.
   You can add some advanced styles here if you like. This kicks in
   on larger screens.
   
-  ******************************************************************/ }
+  ******************************************************************/
+  #inspire article .page-title {
+    font-size: 5em; }
+
+  #inform .sidebar {
+    padding: 1em 0; }
+    #inform .sidebar .page-title {
+      font-size: 7em; }
+
+  .single .sidebar {
+    padding: 1em 0; }
+    .single .sidebar .page-title {
+      font-size: 7em; } }
 /*********************
 RETINA (2x RESOLUTION DEVICES)
 This applies to the retina iPhone (4s) and iPad (2,3) along with

@@ -118,6 +118,16 @@ anymore, so just be aware that if you drop
 them in here, they won't work.
 */
 /*********************
+LAYOUT & GRID STYLES
+*********************/
+.wrap {
+  width: 90%; }
+
+#home .wrap, #design .wrap {
+  width: 75%;
+  max-width: 960px; }
+
+/*********************
 NAVIGATION STYLES
 *********************/
 /* .menu is clearfixed inside mixins.scss */
@@ -138,6 +148,21 @@ NAVIGATION STYLES
         */ }
 
 /* end .menu */
+.panel-nav a span {
+  transition: all 0.25s ease; }
+.panel-nav a.bottom span:hover, .panel-nav a.bottom span:focus {
+  background-position: 50% 75%; }
+.panel-nav a.right span {
+  background-position: 50% 50%; }
+  .panel-nav a.right span:hover, .panel-nav a.right span:focus {
+    background-position: 75% 50%; }
+.panel-nav a.left span {
+  background-position: 50% 50%; }
+  .panel-nav a.left span:hover, .panel-nav a.left span:focus {
+    background-position: 25% 50%; }
+.panel-nav a.top span:hover, .panel-nav a.top span:focus {
+  background-position: 50% 25%; }
+
 /*********************
 POSTS & CONTENT STYLES
 *********************/
@@ -159,6 +184,9 @@ POSTS & CONTENT STYLES
     clear: both; }
 
 /* end .entry-content */
+#home article .cc-icon {
+  max-width: 360px; }
+
 /*********************
 FOOTER STYLES
 *********************/
@@ -186,9 +214,6 @@ GENERAL STYLES
 /*********************
 LAYOUT & GRID STYLES
 *********************/
-.wrap {
-  width: 90%; }
-
 /*********************
 HEADER STYLES
 *********************/
@@ -201,6 +226,9 @@ POSTS & CONTENT STYLES
 .main {
   height: 100%; }
 
+#home .page-title {
+  font-size: 2.5em; }
+
 #invoke article {
   position: relative;
   height: 100%; }
@@ -208,7 +236,7 @@ POSTS & CONTENT STYLES
   position: absolute;
   top: 0;
   left: 0;
-  font-size: 4em; }
+  font-size: 7.5em; }
 #invoke .entry-content {
   position: absolute;
   right: 0;
@@ -218,6 +246,16 @@ POSTS & CONTENT STYLES
 #inspire article {
   top: 25%;
   left: 25%; }
+
+#design header .cc-icon {
+  max-width: 225px; }
+#design header .page-title {
+  font-size: 4em; }
+#design .entry-content {
+  font-size: 4em; }
+
+#inform .wrap {
+  max-width: 1280px; }
 
 .archive .main {
   border-left: 1px solid black; }

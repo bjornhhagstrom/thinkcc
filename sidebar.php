@@ -1,6 +1,6 @@
 				<div id="sidebar1" class="sidebar m-all t-1of3 d-2of7 cf" role="complementary">
 
-					<h1 class="page-title">Inform</h1>
+					<h1 class="page-title swiss-thin">Inform</h1>
 
 					<?php if(is_single() || is_archive()): 
 						if ( is_active_sidebar( 'sidebar1' ) ) : ?>

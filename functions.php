@@ -205,6 +205,11 @@ function bones_fonts() {
 
 add_action('wp_print_styles', 'bones_fonts');
 
-
+// allow svg in media uploader, http://css-tricks.com/snippets/wordpress/allow-svg-through-wordpress-media-uploader/
+function cc_mime_types( $mimes ){
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter( 'upload_mimes', 'cc_mime_types' );
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

@@ -4,7 +4,7 @@
 
 				<?php get_sidebar(); ?>
 
-				<!-- <div id="inner-content" class="wrap cf"> -->
+				<div id="inner-content" class="wrap cf">
 
 					<div class="main m-all t-2of3 d-5of7 last-col cf" role="main">
 
@@ -49,7 +49,7 @@
 
 					</div>
 
-				<!-- </div> -->
+				</div>
 
 			</div>
 

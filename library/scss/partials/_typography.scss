@@ -49,14 +49,19 @@ I've edited it a bit, but it's a nice starting point.
 
 
 // font stacks
-$sans-serif:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+$sans-serif:        "Swiss 721 W03 Md", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $serif:             "Georgia", Cambria, Times New Roman, Times, serif;
 
-/*
- i imported this one in the functions file so bones would look sweet.
- don't forget to remove it for your site.
-*/
-$lato:              'Lato', $sans-serif;
+.swiss-thin {font-family:"Swiss 721 W03 Thn"; font-weight: normal;}
+.swiss-medium {font-family:"Swiss 721 W03 Md";}
+.swiss-medium-italic {font-family:"Swiss 721 W03 Md It";}
+.swiss-black {font-family:"Swiss 721 W03 Blk";}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  font-weight: normal;
+}
+
+em, i, .em {font-family:"Swiss 721 W03 Md It";}
 
 /*
 some nice typographical defaults
