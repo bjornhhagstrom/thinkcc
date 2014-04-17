@@ -2,7 +2,7 @@
 
 			<div id="home" class="panel">
 
-				<nav class="panel-nav">
+				<nav class="panel-nav active">
 					<a class="bottom" href="#design"><span>Design</span></a>
 					<a class="right" href="#inspire"><span>Inspire</span></a>
 					<a class="left" href="#invoke"><span>Invoke</span></a>

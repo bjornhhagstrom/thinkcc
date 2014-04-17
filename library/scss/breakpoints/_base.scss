@@ -17,7 +17,7 @@ GENERAL STYLES
 
 body {
 	font-family: $sans-serif;
-	font-size: 14px;
+	font-size: 12px;
 	line-height: 1.5;
 	color: $text-color;
 	background-color: $bg-color;
@@ -34,6 +34,11 @@ style a page via class
 .blog {}                          /* blog template page */
 .archive {
 	background-color: $blue;
+	.sidebar {
+		.page-title {
+			font-size: 4em;
+		}
+	}
 	.main {
 		color: $black;
 		p {
@@ -48,6 +53,9 @@ style a page via class
 			}
 		}
 	}
+	.wrap {
+		width: 100%;
+	}
 }                       /* archive page */
 .date {}                          /* date archive page */
 	.date-paged-1 {}                /* replace the number to the corresponding page number */
@@ -56,7 +64,16 @@ style a page via class
 	.search-no-results {}           /* no results search page */
 	.search-paged-1 {}              /* individual paged search (i.e. body.search-paged-3) */
 .error404 {}                      /* 404 page */
-.single {}                        /* single post page */
+.single {
+	.sidebar {
+		.page-title {
+			font-size: 4em;
+		}
+	}
+	.wrap {
+		width: 100%;
+	}
+}                        			/* single post page */
 	.postid-1 {}                    /* individual post page by id (i.e. body.postid-73) */
 	.single-paged-1 {}              /* individual paged single (i.e. body.single-paged-3) */
 .attachment {}                    /* attatchment page */
@@ -100,7 +117,7 @@ LAYOUT & GRID STYLES
 	top: 0px;
 	left: 0px;
 	z-index: 0;
-	overflow: hidden;
+	overflow: scroll;
 }
 
 .wrap {
@@ -112,11 +129,41 @@ LAYOUT & GRID STYLES
 	background-color: $pink;
 	color: $white;
 	article {
-		padding-top: 4em;
+		padding-top: 1em;
 		font-size: 1.125em;
 		.cc-icon {
-			max-width: 90%;
+			max-width: 80%;
 		}
+		.cc-links {
+			ul {
+				margin: 0 auto;
+				max-width: 300px;
+				text-align: left;
+				li {
+					padding: 0.5em 1em;
+					&.cc-links-title {
+						background: $black;
+						text-transform: uppercase;
+					}
+				}
+				&.social {
+					li {
+						padding: 0.25em 1em;
+						&.cc-links-title {
+							padding: 0.5em 1em;
+							background: $black;
+							text-transform: uppercase;
+						}
+					}
+				}
+			}
+		}
+	}
+	.page-title {
+		font-size: 2em;
+	}
+	a, a:visited {
+		color: white;
 	}
 	
 }
@@ -354,8 +401,8 @@ and more scalable.
 	overflow: hidden;
 	position: absolute;
 	a {
-		display: block;
-		position: absolute;
+		display: none;
+		position: fixed;
 		color: white;
 		text-align: center;
 		text-indent: -9999px;
@@ -431,6 +478,11 @@ and more scalable.
 			}
 		}
 	}
+	&.active {
+		a {
+			display: block;
+		}
+	}
 }
 
 
@@ -482,7 +534,7 @@ POSTS & CONTENT STYLES
 		}
 
 		.archive-title {
-			padding: 0 0.9em;
+			padding: 0 0.5em;
 		}
 
 		/* want to style individual post classes? Booya! */

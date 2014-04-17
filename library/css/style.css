@@ -541,6 +541,12 @@ p {
   -o-font-feature-settings: "liga", "dlig";
   font-feature-settings: "liga", "dlig"; }
 
+a, a:visited {
+  color: #bb3eff;
+  text-decoration: none; }
+  a:hover, a:focus, a:visited:hover, a:visited:focus {
+    text-decoration: underline; }
+
 .center {
   margin: 0 auto;
   text-align: center; }
@@ -1260,7 +1266,7 @@ GENERAL STYLES
 *********************/
 body {
   font-family: "Swiss 721 W03 Md", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.5;
   color: black;
   background-color: white;
@@ -1275,6 +1281,8 @@ style a page via class
 /* blog template page */
 .archive {
   background-color: #008bac; }
+  .archive .sidebar .page-title {
+    font-size: 4em; }
   .archive .main {
     color: black; }
     .archive .main p {
@@ -1284,6 +1292,8 @@ style a page via class
       /* on hover */ }
       .archive .main a:hover, .archive .main a:focus, .archive .main a:visited:hover, .archive .main a:visited:focus {
         color: black; }
+  .archive .wrap {
+    width: 100%; }
 
 /* archive page */
 /* date archive page */
@@ -1293,6 +1303,11 @@ style a page via class
 /* no results search page */
 /* individual paged search (i.e. body.search-paged-3) */
 /* 404 page */
+.single .sidebar .page-title {
+  font-size: 4em; }
+.single .wrap {
+  width: 100%; }
+
 /* single post page */
 /* individual post page by id (i.e. body.postid-73) */
 /* individual paged single (i.e. body.single-paged-3) */
@@ -1333,7 +1348,7 @@ LAYOUT & GRID STYLES
   top: 0px;
   left: 0px;
   z-index: 0;
-  overflow: hidden; }
+  overflow: scroll; }
 
 .wrap {
   width: 90%;
@@ -1343,10 +1358,29 @@ LAYOUT & GRID STYLES
   background-color: #e8004c;
   color: white; }
   #home article {
-    padding-top: 4em;
+    padding-top: 1em;
     font-size: 1.125em; }
     #home article .cc-icon {
-      max-width: 90%; }
+      max-width: 80%; }
+    #home article .cc-links ul {
+      margin: 0 auto;
+      max-width: 300px;
+      text-align: left; }
+      #home article .cc-links ul li {
+        padding: 0.5em 1em; }
+        #home article .cc-links ul li.cc-links-title {
+          background: black;
+          text-transform: uppercase; }
+      #home article .cc-links ul.social li {
+        padding: 0.25em 1em; }
+        #home article .cc-links ul.social li.cc-links-title {
+          padding: 0.5em 1em;
+          background: black;
+          text-transform: uppercase; }
+  #home .page-title {
+    font-size: 2em; }
+  #home a, #home a:visited {
+    color: white; }
 
 #inspire {
   left: 100%;
@@ -1496,8 +1530,8 @@ and more scalable.
   overflow: hidden;
   position: absolute; }
   .panel-nav a {
-    display: block;
-    position: absolute;
+    display: none;
+    position: fixed;
     color: white;
     text-align: center;
     text-indent: -9999px;
@@ -1562,6 +1596,8 @@ and more scalable.
         height: 4em;
         line-height: 4em;
         background-image: url(../images/arrow-up.png); }
+  .panel-nav.active a {
+    display: block; }
 
 /*********************
 POSTS & CONTENT STYLES
@@ -1595,7 +1631,7 @@ POSTS & CONTENT STYLES
   color: #008bac; }
 
 .archive-title {
-  padding: 0 0.9em; }
+  padding: 0 0.5em; }
 
 /* want to style individual post classes? Booya! */
 /* post by id (i.e. post-3) */
@@ -2092,6 +2128,8 @@ you can add resource intensive styles.
   .main {
     height: 100%; }
 
+  #home article {
+    padding-top: 4em; }
   #home .page-title {
     font-size: 2.5em; }
 
@@ -2127,6 +2165,18 @@ you can add resource intensive styles.
     border-left: 1px solid black; }
   .archive .sidebar {
     background: url(../images/1px-solid-black.png) repeat-y 97.5% 0; }
+  .archive .wrap {
+    height: 100%;
+    width: 90%;
+    max-width: 1280px; }
+
+  .single {
+    background: url(../images/one-quarter-blue.gif) repeat-y 0 0;
+    background-size: 100% auto; }
+    .single .wrap {
+      height: 100%;
+      width: 90%;
+      max-width: 1280px; }
 
   /*********************
   NAVIGATION STYLES
@@ -2261,14 +2311,9 @@ This is for the larger monitors and possibly full screen viewers.
   #inspire article .page-title {
     font-size: 5em; }
 
-  #inform .sidebar {
+  #inform .sidebar, .single .sidebar, .archive .sidebar {
     padding: 1em 0; }
-    #inform .sidebar .page-title {
-      font-size: 7em; }
-
-  .single .sidebar {
-    padding: 1em 0; }
-    .single .sidebar .page-title {
+    #inform .sidebar .page-title, .single .sidebar .page-title, .archive .sidebar .page-title {
       font-size: 7em; } }
 /*********************
 RETINA (2x RESOLUTION DEVICES)

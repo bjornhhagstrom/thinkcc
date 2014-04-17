@@ -48,6 +48,9 @@ POSTS & CONTENT STYLES
 	}
 
 #home {
+	article {
+		padding-top: 4em;
+	}
 	.page-title {
 		font-size: 2.5em;
 	}
@@ -105,6 +108,21 @@ POSTS & CONTENT STYLES
 	}
 	.sidebar {
 		background: url(../images/1px-solid-black.png) repeat-y 97.5% 0;
+	}
+	.wrap {
+		height: 100%;
+		width: 90%;
+		max-width: 1280px;
+	}
+}
+
+.single {
+	background: url(../images/one-quarter-blue.gif) repeat-y 0 0;
+	background-size: 100% auto;
+	.wrap {
+		height: 100%;
+		width: 90%;
+		max-width: 1280px;
 	}
 }
 

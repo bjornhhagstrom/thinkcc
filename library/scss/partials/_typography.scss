@@ -88,6 +88,14 @@ p {
           font-feature-settings: "liga", "dlig";
 }
 
+a, a:visited {
+  color: $purple;
+  text-decoration: none;
+  &:hover, &:focus {
+    text-decoration: underline;
+  }
+}
+
 .center {
   margin: 0 auto;
   text-align: center;

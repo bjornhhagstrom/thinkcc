@@ -112,7 +112,9 @@ jQuery(document).ready(function($) {
     
     var $this = $(this);
     var $thisPanel = $this.parents('.panel');
+    var $thisNav = $this.parents('.panel-nav');
     var $nextPanel = $this.attr('href');
+    var $nextNav = $($nextPanel).find('.panel-nav');
     
     if($this.hasClass('top')) {
 
@@ -135,6 +137,8 @@ jQuery(document).ready(function($) {
       $($nextPanel).css('left', '-100%').animate({ left: "0" }, 300);
     
     }
+    $thisNav.removeClass('active');
+    $nextNav.addClass('active');
   });
 
 

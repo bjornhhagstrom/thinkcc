@@ -26,21 +26,7 @@ on larger screens.
 	}
 	
 }
-#inform {
-	.sidebar {
-		padding: 1em 0;
-		.page-title {
-			font-size: 7em;
-		}
-	}
-	.main {
-		a, a:visited {
-			&:hover, &:focus {
-			}
-		}
-	}
-}
-.single {
+#inform, .single, .archive {
 	.sidebar {
 		padding: 1em 0;
 		.page-title {
