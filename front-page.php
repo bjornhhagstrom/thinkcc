@@ -2,12 +2,12 @@
 
 			<div id="home" class="panel">
 
-				<nav class="panel-nav active">
+				<!-- <nav class="panel-nav active">
 					<a class="bottom" href="#design"><span>Design</span></a>
 					<a class="right" href="#inspire"><span>Inspire</span></a>
 					<a class="left" href="#invoke"><span>Invoke</span></a>
 					<a class="top" href="#inform"><span>Inform</span></a>
-				</nav>
+				</nav> -->
 
 				<div class="inner-content wrap cf">
 
