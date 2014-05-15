@@ -2,12 +2,12 @@
 
 			<div id="home" class="panel">
 
-				<!-- <nav class="panel-nav active">
+				<nav class="panel-nav active">
 					<a class="bottom" href="#design"><span>Design</span></a>
 					<a class="right" href="#inspire"><span>Inspire</span></a>
 					<a class="left" href="#invoke"><span>Invoke</span></a>
 					<a class="top" href="#inform"><span>Inform</span></a>
-				</nav> -->
+				</nav>
 
 				<div class="inner-content wrap cf">
 
@@ -59,9 +59,9 @@
 
 			<div id="inspire" class="panel">
 
-				<nav class="panel-nav">
+				<!-- <nav class="panel-nav">
 					<a class="left" href="#home"><span>Home</span></a>
-				</nav>
+				</nav> -->
 				
 				<div class="inner-content wrap cf">
 
@@ -113,9 +113,9 @@
 
 			<div id="invoke" class="panel">
 
-				<nav class="panel-nav">
+				<!-- <nav class="panel-nav">
 					<a class="right" href="#home"><span>Home</span></a>
-				</nav>
+				</nav> -->
 				
 				<div class="inner-content wrap cf">
 
@@ -165,9 +165,9 @@
 
 			<div id="inform" class="panel archive">
 
-				<nav class="panel-nav">
+				<!-- <nav class="panel-nav">
 					<a class="bottom" href="#home"><span>Home</span></a>
-				</nav>
+				</nav> -->
 				
 				<div class="inner-content wrap cf">
 
@@ -192,7 +192,6 @@
 							</section> <?php // end article section ?>
 
 							<footer class="article-footer cf">
-								<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">Read More</a>
 							</footer>
 
 						</article>
@@ -305,19 +304,28 @@
 				}
 				?>
 				
-				<?php $image = wp_get_attachment_image_src(get_sub_field('project_image'), 'full'); ?>
-				<div id="project-<?php echo $i; ?>" class="project panel" style="background-image: url(<?php echo $image[0]; ?>);">
+				<?php 
+				$imageV = wp_get_attachment_image_src(get_sub_field('project_image_v'), 'full'); 
+				$imageH = wp_get_attachment_image_src(get_sub_field('project_image_h'), 'full'); 
+				?>
+				<div 
+				id="project-<?php echo $i; ?>" 
+				class="project panel" 
+				style="background-image: url(<?php echo $imageV[0]; ?>);" 
+				data-imageh="url(<?php echo $imageH[0]; ?>)" 
+				data-imagev="url(<?php echo $imageV[0]; ?>)">
 
 					<nav class="panel-nav">
-						<a class="left" href="<?php echo $prev; ?>"><span>Prev</span></a>
-						<a class="right" href="<?php echo $next; ?>"><span>Next</span></a>
+						<a class="left" href="<?php echo $prev; ?>"><span>&larr;</span></a>
+						<a class="right" href="<?php echo $next; ?>"><span>&rarr;</span></a>
 					</nav>
 
 					<div class="inner-content wrap cf">
 						<div class="main m-all d-all t-all cf">
 							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 								<section class="entry-content cf" itemprop="articleBody">
-									<h1 class="project-title"><?php the_sub_field('project_title', 7); ?></h1>
+									<h1 class="project-title swiss-thin"><?php the_sub_field('project_title', 7); ?></h1>
+									<p><strong><?php the_sub_field('project_description', 7); ?></strong></p>
 								</section>
 							</article>
 						</div>

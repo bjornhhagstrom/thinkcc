@@ -90,37 +90,38 @@ NAVIGATION STYLES
 .panel-nav {
 	a {
 		&:hover, &:focus {
-		}
-		span {
-			transition: all 0.25s ease;
+			span {
+				transition: all 0.25s ease;
+				width: 3em;
+				height: 3em;
+			}
 		}
 		&.bottom {
-			span {
-				&:hover, &:focus {
-					background-position: 50% 75%;
+			&:hover, &:focus {
+				span {
+					margin: 2.5em auto 0;
+					
 				}
 			}
 		}
 		&.right {
-			span {
-				background-position: 50% 50%;
-				&:hover, &:focus {
-					background-position: 75% 50%;
+			&:hover, &:focus {
+				span {
+					margin: -2.5em 0 0 2.5em;
 				}
 			}
 		}
 		&.left {
-			span {
-				background-position: 50% 50%;
-				&:hover, &:focus {
-					background-position: 25% 50%;
+			&:hover, &:focus {
+				span {
+					margin: -2.5em 0 0 -1.5em;
 				}
 			}
 		}
 		&.top {
-			span {
-				&:hover, &:focus {
-					background-position: 50% 25%;
+			&:hover, &:focus {
+				span {
+					margin: -1.5em auto 0;
 				}
 			}
 		}

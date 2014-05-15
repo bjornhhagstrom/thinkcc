@@ -2,6 +2,12 @@
 
 					<h1 class="page-title swiss-thin">Inform</h1>
 
+					<?php if( !is_archive() ){ ?>
+					<a class="home-link bottom" href="#home" title="Go Home | Christiansen Creative">
+						<img src="<?php bloginfo('template_url'); ?>/library/images/cc-inform.svg" alt="Go Home" width="90" />
+					</a>
+					<?php } ?>
+
 					<?php if(is_single() || is_archive()): 
 						if ( is_active_sidebar( 'sidebar1' ) ) : ?>
 
@@ -21,8 +27,8 @@
 
 						<?php endif; // end if dynamic_sidebar ?>
 						
-						<a class="go-home" href="<?php bloginfo('url'); ?>" title="Go Home | Christiansen Creative">Home</a>
+						<a class="sidebar-home-link" href="<?php bloginfo('url'); ?>" title="Go Home | Christiansen Creative">Home</a>
 						
-						<?php endif; // end if single or archive ?>
-
+					<?php endif; // end if single or archive ?>
+					
 				</div>

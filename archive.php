@@ -61,7 +61,6 @@
 							</section>
 
 							<footer class="article-footer">
-								<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">Read More</a>
 							</footer>
 
 						</article>

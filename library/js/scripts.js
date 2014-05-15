@@ -25,7 +25,6 @@ function updateViewportDimensions() {
 // setting the viewport width
 var viewport = updateViewportDimensions();
 
-
 /*
  * Throttle Resize-triggered Events
  * Wrap your actions in this function to throttle the frequency of firing them off, for better performance, esp. on mobile.
@@ -85,34 +84,16 @@ var timeToWaitForLast = 100;
 */
 
 /*
- * We're going to swap out the gravatars.
- * In the functions.php file, you can see we're not loading the gravatar
- * images on mobile to save bandwidth. Once we hit an acceptable viewport
- * then we can swap out those images since they are located in a data attribute.
-*/
-function loadGravatars() {
-  // set the viewport using the function above
-  viewport = updateViewportDimensions();
-  // if the viewport is tablet or larger, we load in the gravatars
-  if (viewport.width >= 768) {
-  jQuery('.comment img[data-gravatar]').each(function(){
-    jQuery(this).attr('src',$(this).attr('data-gravatar'));
-  });
-	}
-} // end function
-
-
-/*
  * Put all your regular jQuery in here.
 */
 jQuery(document).ready(function($) {
 
-  $('.panel-nav a').click(function(e) {
+  // custom panel nav
+  $('.panel-nav a, .home-link').click(function(e) {
     e.preventDefault();
-    
+
     var $this = $(this);
     var $thisPanel = $this.parents('.panel');
-    var $thisNav = $this.parents('.panel-nav');
     var $nextPanel = $this.attr('href');
     var $nextNav = $($nextPanel).find('.panel-nav');
     
@@ -137,16 +118,36 @@ jQuery(document).ready(function($) {
       $($nextPanel).css('left', '-100%').animate({ left: "0" }, 300);
     
     }
-    $thisNav.removeClass('active');
+    $('.panel-nav').removeClass('active');
     $nextNav.addClass('active');
   });
 
+  // switch images on different devices
+  $(window).on("load resize",function(){
+      var h = $(window).height();
+      var w = $(window).width();
 
-  /*
-   * Let's fire off the gravatar function
-   * You can remove this if you don't need it
-  */
-  loadGravatars();
+      waitForFinalEvent( function() {
+        if(w > h) {
+          // landscape
+          var project = $('.project').removeClass('portrait').addClass('landscape');
+          project.each(function(){
+            $this = $(this);
+            var imageH = $this.data('imageh');
+            $this.css('background-image', imageH);
+          });
+        }else{
+          // portrait
+          var project = $('.project').removeClass('landscape').addClass('portrait');;
+          project.each(function(){
+            $this = $(this);
+            var imageV = $this.data('imagev');
+
+            $this.css('background-image', imageV);
+          });
+        }
+    }, timeToWaitForLast, "detect-orientation");
+  });
 
 
 }); /* end of as page load scripts */

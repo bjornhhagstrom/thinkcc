@@ -502,23 +502,23 @@ https://github.com/devinhunt/typebase.css
 I've edited it a bit, but it's a nice starting point.
 */
 .swiss-thin {
-  font-family: "Swiss 721 W03 Thn";
+  font-family: "Swiss 721 W03 Thn", sans-serif;
   font-weight: normal; }
 
 .swiss-medium {
-  font-family: "Swiss 721 W03 Md"; }
+  font-family: "Swiss 721 W03 Md", sans-serif; }
 
 .swiss-medium-italic {
-  font-family: "Swiss 721 W03 Md It"; }
+  font-family: "Swiss 721 W03 Md It", sans-serif; }
 
 .swiss-black {
-  font-family: "Swiss 721 W03 Blk"; }
+  font-family: "Swiss 721 W03 Blk", sans-serif; }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-weight: normal; }
 
 em, i, .em {
-  font-family: "Swiss 721 W03 Md It"; }
+  font-family: "Swiss 721 W03 Md It", sans-serif; }
 
 /*
 some nice typographical defaults
@@ -1452,13 +1452,22 @@ LAYOUT & GRID STYLES
   left: 100%;
   background-repeat: no-repeat;
   background-position: 50% 0;
-  background-color: #5c6b80;
-  background-size: cover;
-  color: white; }
-  .project .project-title {
+  background-color: white;
+  background-size: auto 100%;
+  overflow: hidden; }
+  .project .entry-content {
     position: absolute;
-    bottom: 1em;
-    left: 1em; }
+    top: 80%;
+    left: 10%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.75); }
+    .project .entry-content .project-title {
+      margin: 1em 0 0;
+      line-height: 1; }
+  .project.landscape .entry-content {
+    top: 75%; }
   .project .inner-content {
     height: 100%; }
   .project .main {
@@ -1471,10 +1480,18 @@ LAYOUT & GRID STYLES
     width: 100%; }
   #inform .sidebar .page-title {
     font-size: 4em; }
+  #inform .sidebar .home-link {
+    display: block;
+    margin: 1em 0 0; }
   #inform .main a, #inform .main a:visited {
     color: black; }
     #inform .main a:hover, #inform .main a:focus, #inform .main a:visited:hover, #inform .main a:visited:focus {
       color: black; }
+
+.excerpt-read-more {
+  display: inline-block;
+  font-size: 0.75em;
+  text-transform: uppercase; }
 
 /*********************
 HEADER STYLES
@@ -1535,67 +1552,46 @@ and more scalable.
     color: white;
     text-align: center;
     text-indent: -9999px;
-    z-index: 99;
-    opacity: 0.25; }
-    .panel-nav a:hover, .panel-nav a:focus {
-      opacity: 1; }
+    z-index: 99; }
     .panel-nav a span {
-      background-repeat: no-repeat;
-      background-position: 50% 50%; }
+      position: relative;
+      display: block;
+      width: 2em;
+      height: 2em;
+      background-color: rgba(235, 235, 235, 0.75);
+      border-radius: 2em; }
     .panel-nav a.bottom {
       left: 0;
       bottom: 0;
       width: 100%;
       height: 4em; }
       .panel-nav a.bottom span {
-        display: block;
-        margin: 0 auto;
-        width: 75px;
-        height: 4em;
-        line-height: 4em;
-        background-image: url(../images/arrow-down.png); }
+        margin: 3em auto 0; }
     .panel-nav a.right {
       top: 0;
       right: 0;
       width: 4em;
       height: 100%; }
       .panel-nav a.right span {
-        display: block;
         position: relative;
         top: 50%;
-        margin-top: -75px;
-        width: 100%;
-        height: 75px;
-        line-height: 75px;
-        background-image: url(../images/arrow-right.png);
-        background-position: 90% 50%; }
+        margin: -2em 0 0 3em; }
     .panel-nav a.left {
       top: 0;
       left: 0;
       width: 4em;
       height: 100%; }
       .panel-nav a.left span {
-        display: block;
         position: relative;
         top: 50%;
-        margin-top: -75px;
-        width: 100%;
-        height: 75px;
-        line-height: 75px;
-        background-image: url(../images/arrow-left.png);
-        background-position: 10% 50%; }
+        margin: -2em 0 0 -1em; }
     .panel-nav a.top {
       top: 0;
       left: 0;
       width: 100%;
       height: 4em; }
       .panel-nav a.top span {
-        display: block;
-        margin: 0 auto;
-        width: 75px;
-        height: 4em;
-        line-height: 4em;
-        background-image: url(../images/arrow-up.png); }
+        margin: -1em auto 0; }
   .panel-nav.active a {
     display: block; }
 
@@ -1617,6 +1613,8 @@ POSTS & CONTENT STYLES
     font-size: 0.75em; }
     .hentry footer p {
       margin: 0; }
+    .hentry footer a {
+      color: #9fa6b4; }
 
 /* end .hentry */
 .single-title,
@@ -1636,7 +1634,6 @@ POSTS & CONTENT STYLES
 /* want to style individual post classes? Booya! */
 /* post by id (i.e. post-3) */
 .post a {
-  color: #9fa6b4;
   text-decoration: none; }
   .post a:hover, .post a:hover, .post a:focus, .post a:visited:hover, .post a:visited:focus {
     color: #9fa6b4;
@@ -1665,7 +1662,7 @@ POSTS & CONTENT STYLES
   but it's up to you. Feel free to change it up.
   */ }
   .entry-content p {
-    margin: 0 0 2em; }
+    margin: 0 0 1.5em; }
   .entry-content table {
     width: 100%;
     border: 1px solid #eaedf2;
@@ -2043,20 +2040,18 @@ tweeners.
           */ }
 
   /* end .menu */
-  .panel-nav a span {
-    transition: all 0.25s ease; }
-  .panel-nav a.bottom span:hover, .panel-nav a.bottom span:focus {
-    background-position: 50% 75%; }
-  .panel-nav a.right span {
-    background-position: 50% 50%; }
-    .panel-nav a.right span:hover, .panel-nav a.right span:focus {
-      background-position: 75% 50%; }
-  .panel-nav a.left span {
-    background-position: 50% 50%; }
-    .panel-nav a.left span:hover, .panel-nav a.left span:focus {
-      background-position: 25% 50%; }
-  .panel-nav a.top span:hover, .panel-nav a.top span:focus {
-    background-position: 50% 25%; }
+  .panel-nav a:hover span, .panel-nav a:focus span {
+    transition: all 0.25s ease;
+    width: 3em;
+    height: 3em; }
+  .panel-nav a.bottom:hover span, .panel-nav a.bottom:focus span {
+    margin: 2.5em auto 0; }
+  .panel-nav a.right:hover span, .panel-nav a.right:focus span {
+    margin: -2.5em 0 0 2.5em; }
+  .panel-nav a.left:hover span, .panel-nav a.left:focus span {
+    margin: -2.5em 0 0 -1.5em; }
+  .panel-nav a.top:hover span, .panel-nav a.top:focus span {
+    margin: -1.5em auto 0; }
 
   /*********************
   POSTS & CONTENT STYLES
@@ -2160,6 +2155,11 @@ you can add resource intensive styles.
 
   #inform .wrap {
     max-width: 1280px; }
+  #inform .sidebar .home-link {
+    position: absolute;
+    left: 1em;
+    bottom: 1em;
+    margin: 0; }
 
   .archive .main {
     border-left: 1px solid black; }
