@@ -3,10 +3,10 @@
 			<div id="home" class="panel">
 
 				<nav class="panel-nav active">
-					<a class="bottom" href="#design"><span>Design</span></a>
-					<a class="right" href="#inspire"><span>Inspire</span></a>
-					<a class="left" href="#invoke"><span>Invoke</span></a>
-					<a class="top" href="#inform"><span>Inform</span></a>
+					<a class="bottom" href="#design"><span>&#9660;</span></a>
+					<a class="right" href="#inspire"><span>&#9654;</span></a>
+					<a class="left" href="#invoke"><span>&#9664;</span></a>
+					<a class="top" href="#inform"><span>&#9650;</span></a>
 				</nav>
 
 				<div class="inner-content wrap cf">
@@ -59,15 +59,15 @@
 
 			<div id="inspire" class="panel">
 
-				<!-- <nav class="panel-nav">
-					<a class="left" href="#home"><span>Home</span></a>
-				</nav> -->
-				
+				<nav class="panel-nav">
+					<a class="left" href="#home"><span>&#9664;</span></a>
+				</nav>
+
 				<div class="inner-content wrap cf">
 
 						<div class="main m-all d-all t-all cf" role="main">
 
-							<?php 
+							<?php
 							$inspire = new WP_Query( 'page_type=page&page_id=9' );
 							if ($inspire->have_posts()) : while ($inspire->have_posts()) : $inspire->the_post(); ?>
 
@@ -113,15 +113,15 @@
 
 			<div id="invoke" class="panel">
 
-				<!-- <nav class="panel-nav">
-					<a class="right" href="#home"><span>Home</span></a>
-				</nav> -->
-				
+				<nav class="panel-nav">
+					<a class="right" href="#home"><span>&#9654;</span></a>
+				</nav>
+
 				<div class="inner-content wrap cf">
 
 						<div class="main m-all d-all t-all cf" role="main">
 
-							<?php 
+							<?php
 							$invoke = new WP_Query( 'page_type=page&page_id=11' );
 							if ($invoke->have_posts()) : while ($invoke->have_posts()) : $invoke->the_post(); ?>
 
@@ -165,17 +165,17 @@
 
 			<div id="inform" class="panel archive">
 
-				<!-- <nav class="panel-nav">
-					<a class="bottom" href="#home"><span>Home</span></a>
-				</nav> -->
-				
+				<nav class="panel-nav">
+					<a class="bottom" href="#home"><span>&#9660;</span></a>
+				</nav>
+
 				<div class="inner-content wrap cf">
 
 					<?php get_sidebar(); ?>
 
 					<div class="main m-all t-2of3 d-1of2 last-col cf" role="main">
 
-						<?php 
+						<?php
 						$inform = new WP_Query( 'page_type=page&page_id=13' );
 						if ($inform->have_posts()) : while ($inform->have_posts()) : $inform->the_post(); ?>
 
@@ -221,21 +221,21 @@
 			<div id="design" class="panel">
 
 				<nav class="panel-nav">
-					<a class="top" href="#home"><span>Home</span></a>
+					<a class="top" href="#home"><span>&#9650;</span></a>
 					<?php // if projects
-					if( have_rows('add_projects', 7) ): 
+					if( have_rows('add_projects', 7) ):
 					$projects = get_field('add_projects', 7);
 					$count_projects = count($projects); ?>
-					<a class="right" href="#project-1"><span>Next</span></a>
-					<a class="left" href="#project-<?php echo $count_projects; ?>"><span>Prev</span></a>
+					<a class="right" href="#project-1"><span>&#9654;</span></a>
+					<a class="left" href="#project-<?php echo $count_projects; ?>"><span>&#9664;</span></a>
 					<?php endif; ?>
 				</nav>
-				
+
 				<div class="inner-content wrap cf">
 
 						<div class="main m-all d-all t-all cf" role="main">
 
-							<?php 
+							<?php
 							$design = new WP_Query( 'page_type=page&page_id=7' );
 							if ($design->have_posts()) : while ($design->have_posts()) : $design->the_post(); ?>
 
@@ -280,14 +280,14 @@
 				</div>
 
 			</div><!--  end design -->
-			
+
 			<?php // if projects
-			if( have_rows('add_projects', 7) ): 
+			if( have_rows('add_projects', 7) ):
 			$i=0;
 			?>
-			 
+
 				<?php // loop through the rows of data
-				while ( have_rows('add_projects', 7) ) : the_row(); 
+				while ( have_rows('add_projects', 7) ) : the_row();
 				$i++;
 				if($i==1){
 					$prev = '#design';
@@ -303,21 +303,21 @@
 					$next = '#project-01';
 				}
 				?>
-				
-				<?php 
-				$imageV = wp_get_attachment_image_src(get_sub_field('project_image_v'), 'full'); 
-				$imageH = wp_get_attachment_image_src(get_sub_field('project_image_h'), 'full'); 
+
+				<?php
+				$imageV = wp_get_attachment_image_src(get_sub_field('project_image_v'), 'full');
+				$imageH = wp_get_attachment_image_src(get_sub_field('project_image_h'), 'full');
 				?>
-				<div 
-				id="project-<?php echo $i; ?>" 
-				class="project panel" 
-				style="background-image: url(<?php echo $imageV[0]; ?>);" 
-				data-imageh="url(<?php echo $imageH[0]; ?>)" 
+				<div
+				id="project-<?php echo $i; ?>"
+				class="project panel"
+				style="background-image: url(<?php echo $imageV[0]; ?>);"
+				data-imageh="url(<?php echo $imageH[0]; ?>)"
 				data-imagev="url(<?php echo $imageV[0]; ?>)">
 
 					<nav class="panel-nav">
-						<a class="left" href="<?php echo $prev; ?>"><span>&larr;</span></a>
-						<a class="right" href="<?php echo $next; ?>"><span>&rarr;</span></a>
+						<a class="left" href="<?php echo $prev; ?>"><span>&#9664;</span></a>
+						<a class="right" href="<?php echo $next; ?>"><span>&#9654;</span></a>
 					</nav>
 
 					<div class="inner-content wrap cf">
@@ -333,7 +333,7 @@
 				</div>
 
 				<?php endwhile; ?>
-			 
+
 			<?php else : ?>
 			    <!--  no projects -->
 			<?php endif; ?>

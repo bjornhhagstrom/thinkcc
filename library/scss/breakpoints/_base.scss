@@ -162,10 +162,12 @@ LAYOUT & GRID STYLES
 	.page-title {
 		font-size: 2em;
 	}
-	a, a:visited {
-		color: white;
+	.entry-content {
+		a, a:visited {
+			color: white;
+		}
 	}
-	
+
 }
 
 #inspire {
@@ -200,7 +202,7 @@ LAYOUT & GRID STYLES
 			}
 		}
 	}
-	
+
 }
 
 #invoke {
@@ -233,7 +235,7 @@ LAYOUT & GRID STYLES
 	top: 100%;
 	background-color: $orange;
 	color: $white;
-	
+
 	header {
 		padding: 4em 0 0;
 		.cc-icon {
@@ -244,9 +246,9 @@ LAYOUT & GRID STYLES
 			margin-left: 14%;
 			line-height: 1.2em;
 			text-transform: uppercase;
-		}	
+		}
 	}
-	
+
 	.entry-content {
 		margin-left: 14%;
 		padding: 0;
@@ -260,13 +262,13 @@ LAYOUT & GRID STYLES
 	background-repeat: no-repeat;
 	background-position: 50% 0;
 	background-color: white;
-	background-size: auto 100%;
+	background-size: cover;
 	overflow: hidden;
 	.entry-content {
 		position: absolute;
 		top: 80%;
 		left: 10%;
-		margin: 0; 
+		margin: 0;
 		padding: 0;
 		width: 100%;
 		text-shadow: 1px 1px 0 rgba(255,255,255,0.75);
@@ -308,7 +310,7 @@ LAYOUT & GRID STYLES
 				color: $black;
 			}
 		}
-		
+
 	}
 }
 		.excerpt-read-more {
@@ -322,7 +324,7 @@ HEADER STYLES
 *********************/
 
 .header {
-	
+
 }
 
 	#logo {
@@ -424,18 +426,21 @@ and more scalable.
 	a {
 		display: none;
 		position: fixed;
-		color: white;
+		color: #666;
 		text-align: center;
-		text-indent: -9999px;
+		text-decoration: none;
 		z-index: 99;
 		&:hover, &:focus {
+			span {
 
+			}
 		}
 		span {
 			position: relative;
 			display: block;
 			width: 2em;
 			height: 2em;
+			line-height: 2em;
 			background-color: rgba(235,235,235,0.75);
 			border-radius: 2em;
 		}
@@ -446,6 +451,10 @@ and more scalable.
 			height: 4em;
 			span {
 				margin: 3em auto 0;
+				line-height: 1.8em;
+			}
+			&:hover span {
+				line-height: 2.6em;
 			}
 		}
 		&.right {
@@ -453,10 +462,15 @@ and more scalable.
 			right: 0;
 			width: 4em;
 			height: 100%;
+			text-indent: -5px;
 			span {
 				position: relative;
 				top: 50%;
 				margin: -2em 0 0 3em;
+				line-height: 2.1em;
+			}
+			&:hover span {
+				line-height: 3em;
 			}
 		}
 		&.left {
@@ -464,10 +478,15 @@ and more scalable.
 			left: 0;
 			width: 4em;
 			height: 100%;
+			text-indent: 5px;
 			span {
 				position: relative;
 				top: 50%;
 				margin: -2em 0 0 -1em;
+				line-height: 2.1em;
+			}
+			&:hover span {
+				line-height: 3em;
 			}
 		}
 		&.top {
@@ -477,6 +496,10 @@ and more scalable.
 			height: 4em;
 			span {
 				margin: -1em auto 0;
+				line-height: 2.4em;
+			}
+			&:hover span {
+				line-height: 3.5em;
 			}
 		}
 	}
@@ -487,19 +510,51 @@ and more scalable.
 	}
 }
 
+#home {
+	.panel-nav {
+		a {
+			color: $pink;
+		}
+	}
+}
+#inform {
+	.panel-nav {
+		a {
+			color: $blue;
+		}
+	}
+}
+#invoke, #inspire {
+	.panel-nav {
+		a {
+			color: #dedede;
+			span {
+				background-color: #999;
+			}
+		}
+	}
+}
+#design {
+	.panel-nav {
+		a {
+			color: $orange;
+		}
+	}
+}
+
 
 /*********************
 POSTS & CONTENT STYLES
 *********************/
 
 #content {
-	
+
 }
 	.inner-content {
 		position: relative;
 	}
 	.main {
-		position: relative;	
+		position: relative;
 	}
 
 		.hentry {

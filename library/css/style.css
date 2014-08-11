@@ -1379,7 +1379,7 @@ LAYOUT & GRID STYLES
           text-transform: uppercase; }
   #home .page-title {
     font-size: 2em; }
-  #home a, #home a:visited {
+  #home .entry-content a, #home .entry-content a:visited {
     color: white; }
 
 #inspire {
@@ -1453,7 +1453,7 @@ LAYOUT & GRID STYLES
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-color: white;
-  background-size: auto 100%;
+  background-size: cover;
   overflow: hidden; }
   .project .entry-content {
     position: absolute;
@@ -1549,15 +1549,16 @@ and more scalable.
   .panel-nav a {
     display: none;
     position: fixed;
-    color: white;
+    color: #666;
     text-align: center;
-    text-indent: -9999px;
+    text-decoration: none;
     z-index: 99; }
     .panel-nav a span {
       position: relative;
       display: block;
       width: 2em;
       height: 2em;
+      line-height: 2em;
       background-color: rgba(235, 235, 235, 0.75);
       border-radius: 2em; }
     .panel-nav a.bottom {
@@ -1566,34 +1567,62 @@ and more scalable.
       width: 100%;
       height: 4em; }
       .panel-nav a.bottom span {
-        margin: 3em auto 0; }
+        margin: 3em auto 0;
+        line-height: 1.8em; }
+      .panel-nav a.bottom:hover span {
+        line-height: 2.6em; }
     .panel-nav a.right {
       top: 0;
       right: 0;
       width: 4em;
-      height: 100%; }
+      height: 100%;
+      text-indent: -5px; }
       .panel-nav a.right span {
         position: relative;
         top: 50%;
-        margin: -2em 0 0 3em; }
+        margin: -2em 0 0 3em;
+        line-height: 2.1em; }
+      .panel-nav a.right:hover span {
+        line-height: 3em; }
     .panel-nav a.left {
       top: 0;
       left: 0;
       width: 4em;
-      height: 100%; }
+      height: 100%;
+      text-indent: 5px; }
       .panel-nav a.left span {
         position: relative;
         top: 50%;
-        margin: -2em 0 0 -1em; }
+        margin: -2em 0 0 -1em;
+        line-height: 2.1em; }
+      .panel-nav a.left:hover span {
+        line-height: 3em; }
     .panel-nav a.top {
       top: 0;
       left: 0;
       width: 100%;
       height: 4em; }
       .panel-nav a.top span {
-        margin: -1em auto 0; }
+        margin: -1em auto 0;
+        line-height: 2.4em; }
+      .panel-nav a.top:hover span {
+        line-height: 3.5em; }
   .panel-nav.active a {
     display: block; }
+
+#home .panel-nav a {
+  color: #e8004c; }
+
+#inform .panel-nav a {
+  color: #008bac; }
+
+#invoke .panel-nav a, #inspire .panel-nav a {
+  color: #dedede; }
+  #invoke .panel-nav a span, #inspire .panel-nav a span {
+    background-color: #999; }
+
+#design .panel-nav a {
+  color: #ff681d; }
 
 /*********************
 POSTS & CONTENT STYLES

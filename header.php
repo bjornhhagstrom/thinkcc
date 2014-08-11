@@ -33,9 +33,9 @@
 		<?php // wordpress head functions ?>
 		<?php wp_head(); ?>
 		<?php // end of wordpress head ?>
-		
+
 		<!-- fonts.com -->
-		<script type="text/javascript" src="http://fast.fonts.net/jsapi/8b55ee32-4797-4559-a697-d8866d078c59.js"></script>
+		<link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/8b55ee32-4797-4559-a697-d8866d078c59.css"/>
 
 		<?php // drop Google Analytics Here ?>
 		<?php // end analytics ?>
