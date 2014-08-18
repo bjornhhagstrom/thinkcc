@@ -96,30 +96,42 @@ jQuery(document).ready(function($) {
     var $thisPanel = $this.parents('.panel');
     var $nextPanel = $this.attr('href');
     var $nextNav = $($nextPanel).find('.panel-nav');
-    
+
     if($this.hasClass('top')) {
 
       $($thisPanel).animate({ top: "100%" }, 300);
       $($nextPanel).animate({ top: "0" }, 300);
 
     } else if($this.hasClass('right')) {
-      
+
       $($thisPanel).animate({ left: "-100%" }, 300);
       $($nextPanel).css('left', '100%').animate({ left: "0" }, 300);
-    
+
     } else if($this.hasClass('bottom')) {
-      
+
       $($thisPanel).animate({ top: "-100%" }, 300);
       $($nextPanel).animate({ top: "0" }, 300);
-    
+
     } else if($this.hasClass('left')) {
-      
+
       $($thisPanel).animate({ left: "100%" }, 300);
       $($nextPanel).css('left', '-100%').animate({ left: "0" }, 300);
-    
+
     }
     $('.panel-nav').removeClass('active');
     $nextNav.addClass('active');
+  });
+
+	//Enable swiping...
+	$(function() {
+    $("#home").swipe( {
+      //Generic swipe handler for all directions
+      swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+        alert("You swiped " + direction );
+      },
+      //Default is 75px, set to 0 for demo so any distance triggers swipe
+      threshold:0
+    });
   });
 
   // switch images on different devices
