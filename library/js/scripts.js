@@ -96,31 +96,78 @@ jQuery(document).ready(function($) {
     var $thisPanel = $this.parents('.panel');
     var $nextPanel = $this.attr('href');
     var $nextNav = $($nextPanel).find('.panel-nav');
-    
+
     if($this.hasClass('top')) {
 
       $($thisPanel).animate({ top: "100%" }, 300);
       $($nextPanel).animate({ top: "0" }, 300);
 
     } else if($this.hasClass('right')) {
-      
+
       $($thisPanel).animate({ left: "-100%" }, 300);
       $($nextPanel).css('left', '100%').animate({ left: "0" }, 300);
-    
+
     } else if($this.hasClass('bottom')) {
-      
+
       $($thisPanel).animate({ top: "-100%" }, 300);
       $($nextPanel).animate({ top: "0" }, 300);
-    
+
     } else if($this.hasClass('left')) {
-      
+
       $($thisPanel).animate({ left: "100%" }, 300);
       $($nextPanel).css('left', '-100%').animate({ left: "0" }, 300);
-    
+
     }
     $('.panel-nav').removeClass('active');
     $nextNav.addClass('active');
   });
+
+	// swipe control
+	$(function(){
+		$( document ).on( "swipeleft swiperight swipeup swipedown", ".panel", function( e ) {
+
+			$this = $(this);
+			$left = $this.find('.panel-nav a.left').attr('href');
+			$right = $this.find('.panel-nav a.right').attr('href');
+			$top = $this.find('.panel-nav a.top').attr('href');
+			$down = $this.find('.panel-nav a.down').attr('href');
+
+			if ( e.type === "swipeleft" && ($right != '') ) {
+
+				$this.animate({ left: "-100%" }, 300);
+				$($right).css('left', '100%').animate({ left: "0" }, 300);
+
+				$('.panel-nav').removeClass('active');
+				$($right).find('.panel-nav').addClass('active');
+
+			} else if ( e.type === "swiperight" && ($left != '') ) {
+
+				$this.animate({ left: "100%" }, 300);
+				$($left).css('left', '-100%').animate({ left: "0" }, 300);
+
+				$('.panel-nav').removeClass('active');
+				$($left).find('.panel-nav').addClass('active');
+
+			} else if ( e.type === "swipeup" && ($up != '') ) {
+
+				$this.animate({ top: "-100%" }, 300);
+				$($up).animate({ top: "0" }, 300);
+
+				$('.panel-nav').removeClass('active');
+				$($up).find('.panel-nav').addClass('active');
+
+			} else if ( e.type === "swipedown" && ($down != '') ) {
+
+				$this.animate({ top: "100%" }, 300);
+				$($down).animate({ top: "0" }, 300);
+
+				$('.panel-nav').removeClass('active');
+				$($down).find('.panel-nav').addClass('active');
+
+			}
+
+		});
+	});
 
   // switch images on different devices
   $(window).on("load resize",function(){

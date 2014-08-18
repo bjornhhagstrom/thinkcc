@@ -144,9 +144,12 @@ function bones_scripts_and_styles() {
 
 		//adding scripts file in the footer
 		wp_register_script( 'bones-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
+		wp_register_script( 'bones-mobile', get_stylesheet_directory_uri() . '/library/js/libs/jquery.mobile.custom.min.js', array(), '2.5.3', false );
+		wp_register_script( 'bones-swipeupdown', get_stylesheet_directory_uri() . '/library/js/libs/jquery.mobile.swipeupdown.js', array(), '2.5.3', false );
 
 		// enqueue styles and scripts
 		wp_enqueue_script( 'bones-modernizr' );
+
 		wp_enqueue_style( 'bones-stylesheet' );
 		wp_enqueue_style( 'bones-ie-only' );
 
@@ -158,6 +161,8 @@ function bones_scripts_and_styles() {
 		and your site will load faster.
 		*/
 		wp_enqueue_script( 'jquery' );
+		wp_enqueue_script( 'bones-mobile' );
+		wp_enqueue_script( 'bones-swipeupdown' );
 		wp_enqueue_script( 'bones-js' );
 
 	}
