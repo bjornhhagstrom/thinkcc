@@ -99,75 +99,134 @@ jQuery(document).ready(function($) {
 
     if($this.hasClass('top')) {
 
-      $($thisPanel).animate({ top: "100%" }, 300);
-      $($nextPanel).animate({ top: "0" }, 300);
+      $($thisPanel).animate({ top: "100%" }, 300).removeClass('active-panel');
+      $($nextPanel).animate({ top: "0" }, 300).addClass('active-panel');
 
     } else if($this.hasClass('right')) {
 
-      $($thisPanel).animate({ left: "-100%" }, 300);
-      $($nextPanel).css('left', '100%').animate({ left: "0" }, 300);
+      $($thisPanel).animate({ left: "-100%" }, 300).removeClass('active-panel');
+      $($nextPanel).css('left', '100%').animate({ left: "0" }, 300).addClass('active-panel');
 
     } else if($this.hasClass('bottom')) {
 
-      $($thisPanel).animate({ top: "-100%" }, 300);
-      $($nextPanel).animate({ top: "0" }, 300);
+      $($thisPanel).animate({ top: "-100%" }, 300).removeClass('active-panel');
+      $($nextPanel).animate({ top: "0" }, 300).addClass('active-panel');
 
     } else if($this.hasClass('left')) {
 
-      $($thisPanel).animate({ left: "100%" }, 300);
-      $($nextPanel).css('left', '-100%').animate({ left: "0" }, 300);
+      $($thisPanel).animate({ left: "100%" }, 300).removeClass('active-panel');
+      $($nextPanel).css('left', '-100%').animate({ left: "0" }, 300).addClass('active-panel');
 
     }
     $('.panel-nav').removeClass('active');
     $nextNav.addClass('active');
   });
 
-	// swipe control
+	// swipe left/right control
 	$(function(){
-		$( document ).on( "swipeleft swiperight swipeup swipedown", ".panel", function( e ) {
+		$( window ).on( "swipeleft swiperight", ".panel", function( e ) {
+
+			alert('left right');
 
 			$this = $(this);
 			$left = $this.find('.panel-nav a.left').attr('href');
 			$right = $this.find('.panel-nav a.right').attr('href');
-			$top = $this.find('.panel-nav a.top').attr('href');
-			$down = $this.find('.panel-nav a.down').attr('href');
 
 			if ( e.type === "swipeleft" && ($right != '') ) {
 
-				$this.animate({ left: "-100%" }, 300);
-				$($right).css('left', '100%').animate({ left: "0" }, 300);
+				$this.animate({ left: "-100%" }, 300).removeClass('active-panel');
+				$($right).css('left', '100%').animate({ left: "0" }, 300).addClass('active-panel');
 
 				$('.panel-nav').removeClass('active');
 				$($right).find('.panel-nav').addClass('active');
 
 			} else if ( e.type === "swiperight" && ($left != '') ) {
 
-				$this.animate({ left: "100%" }, 300);
-				$($left).css('left', '-100%').animate({ left: "0" }, 300);
+				$this.animate({ left: "100%" }, 300).removeClass('active-panel');
+				$($left).css('left', '-100%').animate({ left: "0" }, 300).addClass('active-panel');
 
 				$('.panel-nav').removeClass('active');
 				$($left).find('.panel-nav').addClass('active');
-
-			} else if ( e.type === "swipeup" && ($up != '') ) {
-
-				$this.animate({ top: "-100%" }, 300);
-				$($up).animate({ top: "0" }, 300);
-
-				$('.panel-nav').removeClass('active');
-				$($up).find('.panel-nav').addClass('active');
-
-			} else if ( e.type === "swipedown" && ($down != '') ) {
-
-				$this.animate({ top: "100%" }, 300);
-				$($down).animate({ top: "0" }, 300);
-
-				$('.panel-nav').removeClass('active');
-				$($down).find('.panel-nav').addClass('active');
 
 			}
 
 		});
 	});
+
+	// swipe up/down control
+	$(function(){
+		$window = $(window);
+		var lastScrollTop = 0;
+		$window.scroll(function(e) {
+
+			var st = $(this).scrollTop();
+			$thisPanel = $('.active-panel');
+
+			if (st > lastScrollTop){
+
+				// downscroll code
+				$nextLink = $thisPanel.find('.panel-nav a.top');
+				$nextPanel = $nextLink.attr('href');
+				if ( $window.height() + $window.scrollTop() == $(document).height() && ($nextLink.length) ) {
+					$thisPanel.animate({ top: "100%" }, 300).removeClass('active-panel');
+					$($nextPanel).animate({ top: "0" }, 300).addClass('active-panel');
+					$('.panel-nav').removeClass('active');
+					$($nextPanel).find('.panel-nav').addClass('active');
+				}
+
+				//alert('up');
+
+			} else if (st < lastScrollTop) {
+
+				// upscroll code
+				$nextLink = $thisPanel.find('.panel-nav a.bottom');
+				$nextPanel = $nextLink.attr('href');
+				if ( $window.scrollTop() == 0 && ($nextLink.length) ) {
+					$thisPanel.animate({ top: "-100%" }, 300).removeClass('active-panel');
+					$($nextPanel).animate({ top: "0" }, 300).addClass('active-panel');
+					$('.panel-nav').removeClass('active');
+					$($nextPanel).find('.panel-nav').addClass('active');
+				}
+
+				//alert('down');
+
+			}
+			lastScrollTop = st;
+
+		});
+	});
+
+	// swipe left/right control
+	$(function(){
+		$( window ).on( "swipeleft swiperight", ".panel", function( e ) {
+
+			alert('left right');
+
+			$this = $(this);
+			$left = $this.find('.panel-nav a.left').attr('href');
+			$right = $this.find('.panel-nav a.right').attr('href');
+
+			if ( e.type === "swipeleft" && ($right != '') ) {
+
+				$this.animate({ left: "-100%" }, 300).removeClass('active-panel');
+				$($right).css('left', '100%').animate({ left: "0" }, 300).addClass('active-panel');
+
+				$('.panel-nav').removeClass('active');
+				$($right).find('.panel-nav').addClass('active');
+
+			} else if ( e.type === "swiperight" && ($left != '') ) {
+
+				$this.animate({ left: "100%" }, 300).removeClass('active-panel');
+				$($left).css('left', '-100%').animate({ left: "0" }, 300).addClass('active-panel');
+
+				$('.panel-nav').removeClass('active');
+				$($left).find('.panel-nav').addClass('active');
+
+			}
+
+		});
+	});
+
 
   // switch images on different devices
   $(window).on("load resize",function(){

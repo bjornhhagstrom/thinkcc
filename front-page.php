@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-			<div id="home" class="panel">
+			<div id="home" class="panel active-panel">
 
 				<nav class="panel-nav active">
 					<a class="bottom" href="#design"><span>&#9660;</span></a>
