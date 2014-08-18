@@ -1461,8 +1461,7 @@ LAYOUT & GRID STYLES
     left: 10%;
     margin: 0;
     padding: 0;
-    width: 100%;
-    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.75); }
+    width: 100%; }
     .project .entry-content .project-title {
       margin: 1em 0 0;
       line-height: 1; }

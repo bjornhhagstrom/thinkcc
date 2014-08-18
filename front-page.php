@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-			<div id="home" class="panel">
+			<div id="home" class="panel active-panel">
 
 				<nav class="panel-nav active">
 					<a class="bottom" href="#design"><span>&#9660;</span></a>
@@ -323,7 +323,7 @@
 					<div class="inner-content wrap cf">
 						<div class="main m-all d-all t-all cf">
 							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
-								<section class="entry-content cf" itemprop="articleBody">
+								<section class="entry-content cf" itemprop="articleBody"<?php if(get_sub_field('text_color')){ echo ' style="color:' . get_sub_field('text_color') . ';"'; } ?>>
 									<h1 class="project-title swiss-thin"><?php the_sub_field('project_title', 7); ?></h1>
 									<p><strong><?php the_sub_field('project_description', 7); ?></strong></p>
 								</section>

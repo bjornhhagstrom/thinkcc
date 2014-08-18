@@ -99,23 +99,23 @@ jQuery(document).ready(function($) {
 
     if($this.hasClass('top')) {
 
-      $($thisPanel).animate({ top: "100%" }, 300);
-      $($nextPanel).animate({ top: "0" }, 300);
+      $($thisPanel).animate({ top: "100%" }, 300).removeClass('active-panel');
+      $($nextPanel).animate({ top: "0" }, 300).addClass('active-panel');
 
     } else if($this.hasClass('right')) {
 
-      $($thisPanel).animate({ left: "-100%" }, 300);
-      $($nextPanel).css('left', '100%').animate({ left: "0" }, 300);
+      $($thisPanel).animate({ left: "-100%" }, 300).removeClass('active-panel');
+      $($nextPanel).css('left', '100%').animate({ left: "0" }, 300).addClass('active-panel');
 
     } else if($this.hasClass('bottom')) {
 
-      $($thisPanel).animate({ top: "-100%" }, 300);
-      $($nextPanel).animate({ top: "0" }, 300);
+      $($thisPanel).animate({ top: "-100%" }, 300).removeClass('active-panel');
+      $($nextPanel).animate({ top: "0" }, 300).addClass('active-panel');
 
     } else if($this.hasClass('left')) {
 
-      $($thisPanel).animate({ left: "100%" }, 300);
-      $($nextPanel).css('left', '-100%').animate({ left: "0" }, 300);
+      $($thisPanel).animate({ left: "100%" }, 300).removeClass('active-panel');
+      $($nextPanel).css('left', '-100%').animate({ left: "0" }, 300).addClass('active-panel');
 
     }
     $('.panel-nav').removeClass('active');
