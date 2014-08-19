@@ -89,7 +89,7 @@ var timeToWaitForLast = 100;
 jQuery(document).ready(function($) {
 
   // custom panel nav
-  $('.panel-nav a, .home-link').click(function(e) {
+  $('.home .panel-nav a').click(function(e) {
     e.preventDefault();
 
     var $this = $(this);
