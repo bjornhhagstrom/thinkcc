@@ -124,7 +124,7 @@ jQuery(document).ready(function($) {
 
 	//Enable swiping, via jQuery touchSwipe plugin
 	$(function() {
-      $(".panel").swipe( {
+      $(".home .panel").swipe( {
         //Generic swipe handler for all directions
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
 
