@@ -128,60 +128,64 @@ jQuery(document).ready(function($) {
         //Generic swipe handler for all directions
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
 
-					var $this = $(this);
-					var thisPanel = $this.attr('id');
+					if(duration < 300){
 
-					var thisNav = $('#' + thisPanel + ' .panel-nav');
+						var $this = $(this);
+						var thisPanel = $this.attr('id');
 
-					if(direction === 'up') {
+						var thisNav = $('#' + thisPanel + ' .panel-nav');
 
-						var nextPanelLink = $(thisNav).find('a.bottom');
+						if(direction === 'up') {
 
-					} else if(direction === 'down') {
+							var nextPanelLink = $(thisNav).find('a.bottom');
 
-						var nextPanelLink = $(thisNav).find('a.top');
+						} else if(direction === 'down') {
 
-					} else if(direction === 'left') {
-
-						var nextPanelLink = $(thisNav).find('a.right');
-
-					} else if(direction === 'right') {
-
-						var nextPanelLink = $(thisNav).find('a.left');
-
-					}
-
-					var nextPanel = $(nextPanelLink).attr('href');
-					var nextNav = $(nextPanel + ' .panel-nav');
-
-
-					if(nextPanelLink.length){
-
-						if(direction === 'down') {
-
-							$this.animate({ top: "100%" }, 300).removeClass('active-panel');
-							$(nextPanel).animate({ top: "0" }, 300).addClass('active-panel');
+							var nextPanelLink = $(thisNav).find('a.top');
 
 						} else if(direction === 'left') {
 
-							$this.animate({ left: "-100%" }, 300).removeClass('active-panel');
-							$(nextPanel).css('left', '100%').animate({ left: "0" }, 300).addClass('active-panel');
-
-						} else if(direction === 'up') {
-
-							$this.animate({ top: "-100%" }, 300).removeClass('active-panel');
-							$(nextPanel).animate({ top: "0" }, 300).addClass('active-panel');
+							var nextPanelLink = $(thisNav).find('a.right');
 
 						} else if(direction === 'right') {
 
-							$this.animate({ left: "100%" }, 300).removeClass('active-panel');
-							$(nextPanel).css('left', '-100%').animate({ left: "0" }, 300).addClass('active-panel');
+							var nextPanelLink = $(thisNav).find('a.left');
 
 						}
-						thisNav.removeClass('active');
-						nextNav.addClass('active');
 
-					}
+						var nextPanel = $(nextPanelLink).attr('href');
+						var nextNav = $(nextPanel + ' .panel-nav');
+
+
+						if(nextPanelLink.length){
+
+							if(direction === 'down') {
+
+								$this.animate({ top: "100%" }, 300).removeClass('active-panel');
+								$(nextPanel).animate({ top: "0" }, 300).addClass('active-panel');
+
+							} else if(direction === 'left') {
+
+								$this.animate({ left: "-100%" }, 300).removeClass('active-panel');
+								$(nextPanel).css('left', '100%').animate({ left: "0" }, 300).addClass('active-panel');
+
+							} else if(direction === 'up') {
+
+								$this.animate({ top: "-100%" }, 300).removeClass('active-panel');
+								$(nextPanel).animate({ top: "0" }, 300).addClass('active-panel');
+
+							} else if(direction === 'right') {
+
+								$this.animate({ left: "100%" }, 300).removeClass('active-panel');
+								$(nextPanel).css('left', '-100%').animate({ left: "0" }, 300).addClass('active-panel');
+
+							}
+							thisNav.removeClass('active');
+							nextNav.addClass('active');
+
+						}
+
+					} // end if duration is short enough
 
         },
         //Default is 75px, set to 0 for demo so any distance triggers swipe
