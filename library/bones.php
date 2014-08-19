@@ -160,6 +160,7 @@ function bones_scripts_and_styles() {
 		and your site will load faster.
 		*/
 		wp_enqueue_script( 'jquery' );
+		wp_enqueue_script( 'bones-js' );
 		wp_enqueue_script( 'bones-touchSwipe' );
 
 	}
